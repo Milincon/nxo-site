@@ -385,9 +385,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--cream);
   padding: 32px 28px;
   display: flex; gap: 18px; align-items: flex-start;
-  transition: background .2s;
+  transition: background .2s, transform .2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
 }
-.pain-item:hover { background: var(--cream2); }
+.pain-item::after {
+  content: 'Ver solução →';
+  position: absolute;
+  bottom: 14px; right: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: .5px;
+  color: var(--green);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .2s, transform .2s;
+  text-transform: uppercase;
+}
+.pain-item:hover { background: var(--cream2); transform: translateY(-2px); }
+.pain-item:hover::after { opacity: 1; transform: translateY(0); }
 .pain-num {
   font-family: var(--f-display);
   font-size: 13px;
@@ -1043,22 +1060,22 @@ fbq('init','SEU_PIXEL_ID');fbq('track','PageView');
     <em>Marca invisível.</em>
   </h2>
   <div class="pain-grid">
-    <div class="pain-item reveal">
+    <a href="servicos.html" class="pain-item reveal">
       <span class="pain-num">01</span>
       <p class="pain-text">Seu Instagram não passa a credibilidade que seu trabalho merece</p>
-    </div>
-    <div class="pain-item reveal reveal-delay-1">
+    </a>
+    <a href="servicos.html" class="pain-item reveal reveal-delay-1">
       <span class="pain-num">02</span>
       <p class="pain-text">Clientes chegam por indicação — e somem quando o movimento para</p>
-    </div>
-    <div class="pain-item reveal reveal-delay-2">
+    </a>
+    <a href="servicos.html" class="pain-item reveal reveal-delay-2">
       <span class="pain-num">03</span>
       <p class="pain-text">Você sabe que precisa de marketing, mas não tem tempo de cuidar disso</p>
-    </div>
-    <div class="pain-item reveal reveal-delay-3">
+    </a>
+    <a href="servicos.html" class="pain-item reveal reveal-delay-3">
       <span class="pain-num">04</span>
       <p class="pain-text">Feed sem padrão, sem estratégia — parece amador mesmo sendo profissional</p>
-    </div>
+    </a>
   </div>
 
   <div class="problem-solution reveal">
@@ -1274,12 +1291,14 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
   }
 
   /* Marca link ativo na nav conforme a página atual */
-  var current = (window.location.pathname.split('/').pop() || 'index.html');
+  var current = window.location.pathname.split('/').pop() || 'index.html';
+  // Netlify serve sem .html: /servicos → servicos
+  if (!current.includes('.')) current = current + '.html';
+  if (current === '.html') current = 'index.html';
   document.querySelectorAll('.nav-links a, .drawer a').forEach(function (a) {
-    var href = a.getAttribute('href');
-    if (href === current || (current === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
+    var href = (a.getAttribute('href') || '').split('#')[0];
+    if (!href.includes('.')) href = href ? href + '.html' : 'index.html';
+    if (href === current) a.classList.add('active');
   });
 
   /* Reveal on scroll */
