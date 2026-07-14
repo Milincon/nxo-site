@@ -1137,12 +1137,13 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
   }
 
   /* Marca link ativo na nav conforme a página atual */
-  var current = (window.location.pathname.split('/').pop() || 'index.html');
+  var current = window.location.pathname.split('/').pop() || 'index.html';
+  if (!current.includes('.')) current = current + '.html';
+  if (current === '.html') current = 'index.html';
   document.querySelectorAll('.nav-links a, .drawer a').forEach(function (a) {
-    var href = a.getAttribute('href');
-    if (href === current || (current === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
+    var href = (a.getAttribute('href') || '').split('#')[0];
+    if (!href.includes('.')) href = href ? href + '.html' : 'index.html';
+    if (href === current) a.classList.add('active');
   });
 
   /* Reveal on scroll */
