@@ -1291,15 +1291,15 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
   }
 
   /* Marca link ativo na nav conforme a página atual */
-  var current = window.location.pathname.split('/').pop() || 'index.html';
-  // Netlify serve sem .html: /servicos → servicos
-  if (!current.includes('.')) current = current + '.html';
-  if (current === '.html') current = 'index.html';
-  document.querySelectorAll('.nav-links a, .drawer a').forEach(function (a) {
-    var href = (a.getAttribute('href') || '').split('#')[0];
-    if (!href.includes('.')) href = href ? href + '.html' : 'index.html';
-    if (href === current) a.classList.add('active');
-  });
+  (function() {
+    var path = window.location.pathname;
+    var seg = path.replace(/\/$/, '').split('/').pop() || '';
+    var current = seg.replace(/\.html$/, '') || 'index';
+    document.querySelectorAll('.nav-links a, .drawer a').forEach(function (a) {
+      var href = (a.getAttribute('href') || '').split('#')[0].replace(/\.html$/, '');
+      if (href === current) a.classList.add('active');
+    });
+  })();
 
   /* Reveal on scroll */
   var io = new IntersectionObserver(function (entries) {
