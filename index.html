@@ -263,17 +263,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateY(-50%);
   width: clamp(180px,22vw,320px);
   aspect-ratio: 1;
-  border: 2px solid rgba(58,102,75,.35);
+  border: 2px solid rgba(58,102,75,.25);
   border-radius: 4px;
   z-index: 0;
   display: flex; align-items: center; justify-content: center;
+  padding: 32px;
 }
-.hero-deco::after {
-  content: 'NXO';
-  font-family: var(--f-display);
-  font-size: clamp(48px,8vw,110px);
-  color: rgba(58,102,75,.14);
-  letter-spacing: 4px;
+.hero-deco img {
+  width: 100%;
+  height: auto;
+  opacity: .13;
+  filter: brightness(10);
+  display: block;
 }
 @media (max-width: 768px) { .hero-deco { display: none; } }
 
@@ -976,7 +977,7 @@ fbq('init','SEU_PIXEL_ID');fbq('track','PageView');
 <!-- ═══ HERO ═══════════════════════════════════════════ -->
 <section class="hero" id="inicio">
 
-  <div class="hero-deco" aria-hidden="true"></div>
+  <div class="hero-deco" aria-hidden="true"><img id="hero-deco-logo" src="" alt=""></div>
 
   <div>
     <p class="hero-eyebrow">NXO Agência de Marketing</p>
@@ -1246,6 +1247,10 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
 
 (function () {
   'use strict';
+
+  /* Logo no hero deco */
+  var heroDeco = document.getElementById('hero-deco-logo');
+  if (heroDeco && window.__NXO_LOGO_B64__) heroDeco.src = window.__NXO_LOGO_B64__;
 
   /* NAV scroll */
   var nav = document.getElementById('nav');
