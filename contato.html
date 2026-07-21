@@ -1086,7 +1086,15 @@ fbq('init','SEU_PIXEL_ID');fbq('track','PageView');
           <label for="mensagem">Mensagem</label>
           <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre seu negócio e o que você precisa..." required></textarea>
         </div>
-
+<div class="field" style="margin-bottom:24px;">
+  <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:13.5px;font-weight:400;color:rgba(245,240,232,.65);line-height:1.6;">
+    <input type="checkbox" id="consentimento" name="consentimento" value="sim" required
+           style="width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:#d16e30;cursor:pointer;">
+    <span>Autorizo a NXO Agência a usar meus dados para entrar em contato sobre este pedido, conforme a
+      <a href="privacidade.html" target="_blank" style="color:#d16e30;text-decoration:underline;">Política de Privacidade</a>.
+    </span>
+  </label>
+</div>
         <button type="submit" class="btn-submit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
           Enviar mensagem
@@ -1215,13 +1223,14 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
       }
 
       var formData = {
-        'form-name': 'contato',
-        nome: nome,
-        telefone: form.telefone.value || '',
-        email: form.email.value || '',
-        servico: servico,
-        mensagem: mensagem
-      };
+  'form-name': 'contato',
+  nome: nome,
+  telefone: form.telefone.value || '',
+  email: form.email.value || '',
+  servico: servico,
+  mensagem: mensagem,
+  consentimento: form.consentimento && form.consentimento.checked ? 'sim' : 'nao'
+};
 
       fetch('/', {
         method: 'POST',
