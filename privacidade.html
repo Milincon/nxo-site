@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — NXO Agência</title>
+<meta name="description" content="Política de Privacidade da NXO Agência. Saiba como tratamos seus dados pessoais conforme a LGPD.">
+<link rel="canonical" href="https://nxoagencia.com.br/privacidade.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Política de Privacidade — NXO Agência">
+<meta property="og:description" content="Como a NXO Agência coleta, usa e protege seus dados pessoais.">
+<meta property="og:url" content="https://nxoagencia.com.br/privacidade.html">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="NXO Agência">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Junge&display=swap" rel="stylesheet">
+
+<!-- FAVICON: copie a linha <link rel="icon" ...> de qualquer outra página do site e cole aqui -->
+
+<style>
+:root{
+  --ink:#0b120a; --ink2:#161f14;
+  --green:#3a664b; --green2:#4d7f60;
+  --orange:#d16e30; --orange2:#e2884f;
+  --cream:#fcfce6;
+  --f-display:'Josefin Sans',system-ui,sans-serif;
+  --f-body:'Josefin Sans',system-ui,sans-serif;
+  --f-italic:'Junge',Georgia,serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--f-body);background:var(--ink);color:var(--cream);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+.doc-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px clamp(20px,6vw,72px);
+  border-bottom:1px solid rgba(252,252,230,.08);
+  position:sticky;top:0;background:rgba(11,18,10,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;
+}
+.doc-nav .brand{font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:3px}
+.doc-nav .back{font-size:13px;color:rgba(252,252,230,.6);transition:color .2s}
+.doc-nav .back:hover{color:var(--orange)}
+
+.doc{
+  max-width:74ch;
+  margin:0 auto;
+  padding:clamp(56px,9vw,96px) clamp(20px,6vw,40px) clamp(80px,10vw,120px);
+}
+.doc-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--green2);margin-bottom:20px;
+}
+.doc-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--green2)}
+h1{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(38px,6vw,64px);line-height:1;letter-spacing:-1px;margin-bottom:18px;
+}
+.updated{font-size:13px;color:rgba(252,252,230,.4);margin-bottom:48px}
+h2{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(20px,2.6vw,26px);letter-spacing:.5px;
+  margin:48px 0 14px;color:var(--cream);
+  padding-top:22px;border-top:1px solid rgba(252,252,230,.08);
+}
+h3{font-family:var(--f-display);font-weight:600;font-size:16px;letter-spacing:.5px;margin:26px 0 8px;color:var(--orange2)}
+p{font-size:15.5px;line-height:1.75;color:rgba(252,252,230,.72);margin-bottom:14px}
+ul{margin:0 0 16px 0;padding-left:0;list-style:none}
+li{
+  font-size:15px;line-height:1.7;color:rgba(252,252,230,.72);
+  padding-left:22px;position:relative;margin-bottom:9px;
+}
+li::before{
+  content:'';position:absolute;left:2px;top:11px;
+  width:5px;height:5px;border-radius:50%;background:var(--orange);
+}
+strong{color:var(--cream);font-weight:600}
+a.link{color:var(--orange);border-bottom:1px solid rgba(209,110,48,.35);transition:border-color .2s}
+a.link:hover{border-color:var(--orange)}
+
+.callout{
+  background:rgba(58,102,75,.12);
+  border:1px solid rgba(58,102,75,.32);
+  border-radius:8px;padding:22px 24px;margin:28px 0;
+}
+.callout p{margin-bottom:0;font-size:14.5px}
+
+table{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14.5px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(252,252,230,.1);vertical-align:top}
+th{
+  font-size:11px;letter-spacing:1.2px;text-transform:uppercase;
+  color:rgba(252,252,230,.45);font-weight:600;
+}
+td{color:rgba(252,252,230,.72);line-height:1.6}
+@media (max-width:560px){
+  table,thead,tbody,th,td,tr{display:block}
+  thead{display:none}
+  tr{border-bottom:1px solid rgba(252,252,230,.1);padding:12px 0}
+  td{border:none;padding:4px 0}
+  td::before{content:attr(data-label);display:block;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(252,252,230,.4);margin-bottom:3px}
+}
+
+.doc-footer{
+  border-top:1px solid rgba(252,252,230,.08);
+  padding:32px clamp(20px,6vw,72px);
+  font-size:13px;color:rgba(252,252,230,.35);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.doc-footer a:hover{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a href="index.html" class="brand">NXO</a>
+  <a href="index.html" class="back">← Voltar ao site</a>
+</nav>
+
+<main class="doc">
+
+  <p class="doc-eyebrow">Documento legal</p>
+  <h1>Política de Privacidade</h1>
+  <p class="updated">Última atualização: 21 de julho de 2026</p>
+
+  <p>Esta Política explica como a <strong>NXO Agência</strong> coleta, usa, compartilha e protege dados pessoais no site <strong>nxoagencia.com.br</strong>, em conformidade com a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados — LGPD).</p>
+
+  <h2>1. Quem é o controlador dos dados</h2>
+  <p>A NXO Agência é a controladora dos dados pessoais tratados neste site — ou seja, é quem decide como e por que eles são utilizados.</p>
+  <ul>
+    <li><strong>E-mail:</strong> <a class="link" href="mailto:nxoagmkt@gmail.com">nxoagmkt@gmail.com</a></li>
+    <li><strong>WhatsApp:</strong> <a class="link" href="https://wa.me/5583994028974" target="_blank" rel="noopener">(83) 99402-8974</a></li>
+    <li><strong>Localização:</strong> João Pessoa — Paraíba, Brasil</li>
+  </ul>
+
+  <h2>2. Quais dados coletamos</h2>
+
+  <h3>2.1. Dados que você nos fornece</h3>
+  <p>Quando você preenche o formulário de contato, coletamos:</p>
+  <ul>
+    <li>Nome completo</li>
+    <li>Número de WhatsApp</li>
+    <li>Endereço de e-mail</li>
+    <li>Serviço de interesse</li>
+    <li>Mensagem enviada (e qualquer informação que você inclua nela)</li>
+  </ul>
+  <p>Se você nos contatar por WhatsApp ou e-mail, também tratamos as informações que você compartilhar nessas conversas.</p>
+
+  <h3>2.2. Dados coletados automaticamente</h3>
+  <p>Ao navegar no site, ferramentas de análise e publicidade podem coletar:</p>
+  <ul>
+    <li>Endereço IP e localização aproximada</li>
+    <li>Tipo de navegador, dispositivo e sistema operacional</li>
+    <li>Páginas visitadas, tempo de permanência e origem do acesso</li>
+    <li>Identificadores de cookies e tecnologias similares</li>
+  </ul>
+
+  <div class="callout">
+    <p>Não coletamos dados sensíveis (saúde, religião, biometria, opinião política, entre outros) nem dados de crianças e adolescentes. Nosso site é direcionado a maiores de 18 anos.</p>
+  </div>
+
+  <h2>3. Por que tratamos seus dados</h2>
+
+  <table>
+    <thead>
+      <tr><th>Finalidade</th><th>Base legal (LGPD)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Finalidade">Responder seu contato e enviar orçamentos ou propostas</td>
+        <td data-label="Base legal">Consentimento e procedimentos preliminares de contrato (art. 7º, I e V)</td>
+      </tr>
+      <tr>
+        <td data-label="Finalidade">Executar e gerenciar serviços contratados</td>
+        <td data-label="Base legal">Execução de contrato (art. 7º, V)</td>
+      </tr>
+      <tr>
+        <td data-label="Finalidade">Medir audiência e melhorar o site</td>
+        <td data-label="Base legal">Legítimo interesse (art. 7º, IX)</td>
+      </tr>
+      <tr>
+        <td data-label="Finalidade">Anúncios e remarketing (Meta Pixel)</td>
+        <td data-label="Base legal">Consentimento (art. 7º, I)</td>
+      </tr>
+      <tr>
+        <td data-label="Finalidade">Cumprir obrigações legais e fiscais</td>
+        <td data-label="Base legal">Obrigação legal (art. 7º, II)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Não vendemos seus dados</strong> e não enviamos comunicações de marketing sem que você tenha nos procurado ou autorizado.</p>
+
+  <h2>4. Com quem compartilhamos</h2>
+  <p>Compartilhamos dados apenas com prestadores de serviço necessários para operar o site e o atendimento:</p>
+  <ul>
+    <li><strong>Netlify</strong> — hospedagem do site e armazenamento das mensagens enviadas pelo formulário</li>
+    <li><strong>Meta (Facebook/Instagram)</strong> — mensuração e veiculação de anúncios, quando você autoriza cookies</li>
+    <li><strong>Google</strong> — fontes e, quando aplicável, ferramentas de análise e anúncios</li>
+    <li><strong>WhatsApp</strong> — quando o atendimento acontece por esse canal</li>
+  </ul>
+  <p>Também podemos compartilhar dados quando houver exigência legal, ordem judicial ou solicitação de autoridade competente.</p>
+
+  <h3>Transferência internacional</h3>
+  <p>Parte desses serviços tem servidores fora do Brasil, principalmente nos Estados Unidos. Ao usar o site, você reconhece que seus dados podem ser processados no exterior, sempre com fornecedores que adotam medidas de proteção compatíveis com a LGPD.</p>
+
+  <h2>5. Por quanto tempo guardamos</h2>
+  <ul>
+    <li><strong>Contatos que não viraram cliente:</strong> até 2 anos após o último contato</li>
+    <li><strong>Dados de clientes:</strong> durante a relação contratual e pelos prazos legais e fiscais aplicáveis após o encerramento</li>
+    <li><strong>Dados de navegação e cookies:</strong> conforme o prazo de cada cookie, geralmente até 12 meses</li>
+  </ul>
+  <p>Encerrado o prazo ou atingida a finalidade, os dados são eliminados ou anonimizados — salvo quando a lei exigir que sejam mantidos.</p>
+
+  <h2>6. Cookies</h2>
+  <p>Cookies são pequenos arquivos gravados no seu navegador. Usamos:</p>
+  <ul>
+    <li><strong>Necessários:</strong> essenciais para o funcionamento do site. Não podem ser desativados.</li>
+    <li><strong>Analíticos:</strong> ajudam a entender como o site é usado, de forma agregada.</li>
+    <li><strong>Publicidade:</strong> permitem medir campanhas e exibir anúncios relevantes (Meta Pixel).</li>
+  </ul>
+  <p>Você pode aceitar ou recusar os cookies não essenciais no aviso exibido ao entrar no site, e também bloqueá-los ou apagá-los nas configurações do seu navegador a qualquer momento.</p>
+
+  <h2>7. Seus direitos</h2>
+  <p>A LGPD garante a você, a qualquer momento e sem custo, o direito de:</p>
+  <ul>
+    <li>Confirmar se tratamos seus dados e acessá-los</li>
+    <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
+    <li>Solicitar anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos</li>
+    <li>Solicitar a portabilidade a outro fornecedor</li>
+    <li>Revogar o consentimento e pedir a exclusão dos dados tratados com base nele</li>
+    <li>Se opor a tratamentos feitos com base em legítimo interesse</li>
+    <li>Ser informado sobre com quem compartilhamos seus dados</li>
+  </ul>
+  <p>Para exercer qualquer um desses direitos, escreva para <a class="link" href="mailto:nxoagmkt@gmail.com">nxoagmkt@gmail.com</a>. Respondemos em até 15 dias. Podemos pedir uma confirmação de identidade antes de atender ao pedido, para proteger seus próprios dados.</p>
+
+  <h2>8. Segurança</h2>
+  <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda ou divulgação indevida — incluindo conexão criptografada (HTTPS) e acesso restrito às informações. Nenhum sistema é totalmente infalível, mas, em caso de incidente que possa gerar risco relevante a você, comunicaremos você e a ANPD conforme exige a lei.</p>
+
+  <h2>9. Alterações nesta política</h2>
+  <p>Podemos atualizar este documento a qualquer momento. A data de atualização no topo da página sempre indica a versão vigente. Mudanças significativas serão sinalizadas no site.</p>
+
+  <h2>10. Dúvidas</h2>
+  <p>Qualquer questão sobre privacidade e proteção de dados pode ser enviada para <a class="link" href="mailto:nxoagmkt@gmail.com">nxoagmkt@gmail.com</a>. Você também pode registrar reclamação junto à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+</main>
+
+<footer class="doc-footer">
+  <span>© 2026 NXO Agência. Todos os direitos reservados.</span>
+  <span><a href="index.html">Início</a> · <a href="contato.html">Contato</a></span>
+</footer>
+
+</body>
+</html>
