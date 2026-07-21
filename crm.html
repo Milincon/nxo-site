@@ -476,5 +476,49 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
   }
 })();
 </script>
+  <!-- BANNER DE COOKIES -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:#161f14;border-top:1px solid rgba(209,110,48,.3);padding:20px clamp(20px,5vw,48px);box-shadow:0 -8px 32px rgba(0,0,0,.4);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;">
+    <p style="font-size:14px;color:rgba(252,252,230,.7);line-height:1.6;max-width:62ch;margin:0;">
+      Usamos cookies para melhorar sua experiência e medir nossas campanhas. Você pode aceitar ou recusar os não essenciais — veja detalhes na
+      <a href="privacidade.html" style="color:#d16e30;text-decoration:underline;">Política de Privacidade</a>.
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookieReject" style="background:none;border:1px solid rgba(252,252,230,.25);color:rgba(252,252,230,.7);padding:11px 22px;border-radius:6px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;">Recusar</button>
+      <button id="cookieAccept" style="background:#d16e30;border:none;color:#fff;padding:11px 26px;border-radius:6px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='nxo_cookie_consent';
+  var banner=document.getElementById('cookieBanner');
+  var saved=null;
+  try{ saved=localStorage.getItem(KEY); }catch(e){}
+
+  function loadPixel(){
+    if(window.__nxoPixelLoaded) return;
+    window.__nxoPixelLoaded=true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','SEU_PIXEL_ID');
+    fbq('track','PageView');
+  }
+
+  function decide(v){
+    try{ localStorage.setItem(KEY,v); }catch(e){}
+    if(banner) banner.style.display='none';
+    if(v==='accept') loadPixel();
+  }
+
+  if(saved==='accept'){ loadPixel(); }
+  else if(saved!=='reject' && banner){ banner.style.display='block'; }
+
+  var a=document.getElementById('cookieAccept');
+  var r=document.getElementById('cookieReject');
+  if(a) a.addEventListener('click',function(){ decide('accept'); });
+  if(r) r.addEventListener('click',function(){ decide('reject'); });
+})();
+</script>
 </body>
 </html>
