@@ -1053,8 +1053,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
     <!-- CASE REAL: DR. WENBERGER -->
     <div class="case-card reveal" data-category="site">
-      <div class="case-cover" style="background:#0b120a;padding:0;overflow:hidden;position:relative;">
-        <img src="assets/wenberger-lp.jpg" alt="Landing page do Dr. Wenberger" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+      <div class="case-cover" style="background:linear-gradient(135deg,#0d2a24 0%,#0b120a 100%);padding:0;overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:28px;flex:none;background:rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.07);">
+          <span style="width:9px;height:9px;border-radius:50%;background:#ff5f56;"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#ffbd2e;"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#27c93f;"></span>
+          <span style="margin-left:10px;font-size:10px;color:rgba(245,240,232,.55);letter-spacing:.3px;">drwenberger.com.br</span>
+        </div>
+        <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:12px;">
+          <img src="assets/wenberger-lp.jpg" alt="Landing page do Dr. Wenberger" loading="lazy" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.45);display:block;">
+        </div>
         <div style="position:absolute;bottom:14px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--orange);text-transform:uppercase;background:rgba(0,0,0,.6);padding:4px 10px;border-radius:20px;">Case real</div>
       </div>
       <div class="case-body">
