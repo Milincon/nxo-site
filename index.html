@@ -1206,19 +1206,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       </div>
     </div>
 
-    <!-- Conceitual: tráfego -->
+    <!-- Case real: Dr. Wenberger -->
     <div class="case-card reveal reveal-delay-1">
-      <div class="case-cover" style="background:linear-gradient(135deg,#2d1a0e 0%,#1a0f07 100%);">
-        <span>Estratégia de Tráfego</span>
-        <div style="position:absolute;bottom:14px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(245,240,232,.5);text-transform:uppercase;background:rgba(0,0,0,.4);padding:4px 10px;border-radius:20px;">Conceitual</div>
+      <div class="case-cover" style="background:linear-gradient(135deg,#0d2a24 0%,#0b120a 100%);">
+        <span style="border:none;color:var(--cream);opacity:.9;">Dr. Wenberger</span>
+        <div style="position:absolute;bottom:14px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--orange);text-transform:uppercase;background:rgba(0,0,0,.4);padding:4px 10px;border-radius:20px;">Case real</div>
       </div>
       <div class="case-body">
-        <p class="case-tag">Conceitual — Tráfego Pago</p>
-        <h3 class="case-title">Funil&nbsp;Meta Ads</h3>
-        <p class="case-desc">Planejamento completo de funil para e-commerce local: segmentação, criativos, lookalike e retargeting — demonstrando nossa estrutura de campanhas.</p>
+        <p class="case-tag" style="color:var(--orange);">✦ Case Real — Site</p>
+        <h3 class="case-title">Dr.&nbsp;Wenberger</h3>
+        <p class="case-desc">Landing page para clínica médica em Manaus, desenvolvida pela NXO. No ar e captando pacientes com agendamento direto pelo WhatsApp.</p>
         <div class="case-stats">
-          <div class="case-stat"><div class="num">Conceitual</div><div class="label">Projeto</div></div>
-          <div class="case-stat"><div class="num">Funil</div><div class="label">Completo</div></div>
+          <div class="case-stat"><div class="num">No ar</div><div class="label">Site</div></div>
+          <div class="case-stat"><div class="num">WhatsApp</div><div class="label">Agendamento</div></div>
         </div>
       </div>
     </div>
@@ -1495,9 +1495,7 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
   function loadPixel(){
     if(window.__nxoPixelLoaded) return;
     window.__nxoPixelLoaded=true;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','SEU_PIXEL_ID');
-    fbq('track','PageView');
+    window.__nxoLoadPixel=function(){if(window.__nxoPixelLoaded)return;window.__nxoPixelLoaded=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','SEU_PIXEL_ID');fbq('track','PageView');};if(localStorage.getItem('nxo_cookie_consent')==='accepted'){window.__nxoLoadPixel();}
   }
 
   function decide(v){
@@ -1515,5 +1513,26 @@ window.__NXO_LOGO_B64__ = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAE
   if(r) r.addEventListener('click',function(){ decide('reject'); });
 })();
 </script>
+<!-- Banner de cookies (LGPD) — carrega Meta Pixel só após aceite -->
+<div id="nxo-cookie-banner" role="dialog" aria-label="Aviso de cookies" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:820px;margin:0 auto;background:#0f1a12;border:1px solid rgba(209,110,48,.35);border-radius:14px;padding:20px 22px;box-shadow:0 14px 40px rgba(0,0,0,.5);flex-direction:column;gap:14px;font-family:'Josefin Sans',system-ui,sans-serif;">
+  <p style="margin:0;color:#fcfce6;font-size:14px;line-height:1.6;">Usamos cookies para melhorar sua experiência e medir a performance do site. Você pode aceitar ou recusar cookies de marketing. Saiba mais na nossa <a href="privacidade.html" style="color:#d16e30;text-decoration:underline;">Política de Privacidade</a>.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <button id="nxo-cookie-accept" style="background:#d16e30;color:#fff;border:none;padding:11px 22px;border-radius:6px;font-weight:700;font-size:13px;letter-spacing:.3px;cursor:pointer;font-family:inherit;">Aceitar</button>
+    <button id="nxo-cookie-reject" style="background:transparent;color:#fcfce6;border:1px solid rgba(252,252,230,.3);padding:11px 22px;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;">Recusar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('nxo-cookie-banner');
+  if(!b)return;
+  var c=null;try{c=localStorage.getItem('nxo_cookie_consent');}catch(e){}
+  if(!c){b.style.display='flex';}
+  function set(v){try{localStorage.setItem('nxo_cookie_consent',v);}catch(e){}b.style.display='none';if(v==='accepted'&&window.__nxoLoadPixel){window.__nxoLoadPixel();}}
+  var a=document.getElementById('nxo-cookie-accept'),r=document.getElementById('nxo-cookie-reject');
+  if(a)a.onclick=function(){set('accepted');};
+  if(r)r.onclick=function(){set('rejected');};
+})();
+</script>
+
 </body>
 </html>
