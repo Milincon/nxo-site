@@ -68,7 +68,7 @@
     });
   }
 
-  /* Formulário de contato (demonstrativo — sem backend configurado) */
+  /* Formulário de contato (demonstrativo, sem backend configurado) */
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (e) {

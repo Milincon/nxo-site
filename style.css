@@ -1,9 +1,7 @@
-/* ═══════════════════════════════════════════════════════
-   NXO AGÊNCIA — SITE INSTITUCIONAL
-   Design system herdado da landing page original
-   ═══════════════════════════════════════════════════════ */
+/* NXO AGÊNCIA, SITE INSTITUCIONAL
+   Design system herdado da landing page original */
 
-/* ── TOKENS ───────────────────────────────────────────── */
+/* TOKENS */
 :root {
   --ink:    #0d0d0d;
   --ink2:   #1a1a1a;
@@ -22,7 +20,7 @@
   --ease-out: cubic-bezier(.2,.8,.2,1);
 }
 
-/* ── RESET ────────────────────────────────────────────── */
+/* RESET */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
@@ -44,7 +42,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
 }
 
-/* ── NAVBAR ───────────────────────────────────────────── */
+/* NAVBAR */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -110,7 +108,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 28px; color: var(--cream);
 }
 
-/* ── HERO (home) ──────────────────────────────────────── */
+/* HERO (home) */
 .hero {
   min-height: 100svh;
   display: grid;
@@ -247,7 +245,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 @media (max-width: 768px) { .hero-deco { display: none; } }
 
-/* ── PAGE HERO (páginas internas) ─────────────────────── */
+/* PAGE HERO (páginas internas) */
 .page-hero {
   padding: clamp(140px,16vw,190px) clamp(20px,6vw,72px) clamp(60px,8vw,90px);
   background: var(--ink);
@@ -294,7 +292,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.6;
 }
 
-/* ── MARQUEE ──────────────────────────────────────────── */
+/* MARQUEE */
 .marquee-wrap {
   overflow: hidden;
   background: var(--orange);
@@ -317,7 +315,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .marquee-track span.sep { color: rgba(0,0,0,.35); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* ── PROBLEM ──────────────────────────────────────────── */
+/* PROBLEM */
 .problem {
   background: var(--cream);
   color: var(--ink);
@@ -401,7 +399,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .solution-text p { font-size: 15px; color: rgba(245,240,232,.7); line-height: 1.55; }
 .solution-text em { font-family: var(--f-italic); font-style: italic; color: var(--cream); }
 
-/* ── SERVICES ─────────────────────────────────────────── */
+/* SERVICES */
 .services {
   background: var(--ink2);
   padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
@@ -491,7 +489,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .service-card-cta::after { content: '→'; transition: transform .2s; }
 .service-card:hover .service-card-cta::after { transform: translateX(3px); }
 
-/* ── COMO FUNCIONA / PROCESSO ─────────────────────────── */
+/* COMO FUNCIONA / PROCESSO */
 .process {
   background: var(--ink);
   padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
@@ -555,7 +553,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: rgba(245,240,232,.5);
 }
 
-/* ── PORTFÓLIO / CASES ────────────────────────────────── */
+/* PORTFÓLIO / CASES */
 .portfolio {
   background: var(--ink2);
   padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
@@ -633,7 +631,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .case-stat .num { font-family: var(--f-display); font-size: 22px; color: var(--orange); line-height: 1; }
 .case-stat .label { font-size: 10px; color: rgba(245,240,232,.4); letter-spacing: .5px; margin-top: 3px; text-transform: uppercase; }
 
-/* ── SOBRE ─────────────────────────────────────────────── */
+/* SOBRE */
 .about {
   background: var(--cream); color: var(--ink);
   padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
@@ -655,7 +653,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .about-value strong { display: block; font-family: var(--f-display); font-size: 16px; margin-bottom: 4px; }
 .about-value p { font-size: 13.5px; color: rgba(13,13,13,.6); line-height: 1.5; }
 
-/* ── CONTATO ──────────────────────────────────────────── */
+/* CONTATO */
 .contact {
   background: var(--ink);
   padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
@@ -756,7 +754,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .map-strip p { font-size: 14px; color: rgba(245,240,232,.6); }
 .map-strip strong { color: var(--cream); }
 
-/* ── CTA FINAL ────────────────────────────────────────── */
+/* CTA FINAL */
 .cta-section {
   background: var(--ink);
   padding: clamp(80px,12vw,140px) clamp(20px,6vw,72px);
@@ -816,7 +814,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn-big svg { width: 22px; height: 22px; }
 .cta-note { font-size: 13px; color: rgba(245,240,232,.35); display: flex; align-items: center; gap: 6px; }
 
-/* ── FOOTER ───────────────────────────────────────────── */
+/* FOOTER */
 .footer {
   background: #080808;
   padding: 48px clamp(20px,6vw,72px) 32px;
@@ -866,7 +864,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-copy a { color: rgba(245,240,232,.35); }
 .footer-copy a:hover { color: var(--orange); }
 
-/* ── REVEAL ON SCROLL ─────────────────────────────────── */
+/* REVEAL ON SCROLL */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
