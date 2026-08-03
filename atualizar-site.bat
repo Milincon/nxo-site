@@ -41,7 +41,7 @@ git status --short
 echo.
 git add -A
 
-set "MSG=feat: case real Dr. Wenberger no portfolio/home + banner de cookies LGPD e pixel condicionado ao consentimento"
+set "MSG=feat: remove travessoes, emojis de IA e tags de dobra; adiciona case demonstrativo LP advocacia (Dr. Lucas)"
 git commit -m "%MSG%"
 if errorlevel 1 (
   echo.
