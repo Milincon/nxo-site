@@ -2,982 +2,170 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NXO Agência | Sua marca deveria ser referência</title>
-<meta name="description" content="A NXO cuida da sua presença digital do zero ao completo: identidade visual, sites, redes sociais e tráfego pago. Diagnóstico gratuito.">
-<link rel="canonical" href="https://nxoagencia.com.br/">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="NXO Agência | Sua marca deveria ser referência">
-<meta property="og:description" content="A NXO cuida da sua presença digital do zero ao completo: identidade visual, sites, redes sociais e tráfego pago. Diagnóstico gratuito.">
-<meta property="og:image" content="https://nxoagencia.com.br/img/og-image.png">
-<meta property="og:url" content="https://nxoagencia.com.br/">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="NXO Agência">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NXO Agência | Sua marca deveria ser referência">
-<meta name="twitter:description" content="A NXO cuida da sua presença digital do zero ao completo: identidade visual, sites, redes sociais e tráfego pago. Diagnóstico gratuito.">
-<meta name="twitter:image" content="https://nxoagencia.com.br/img/og-image.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NXO — O escritório que não perde prazo e para de perder dinheiro</title>
+<meta name="description" content="Sistema de gestão para escritórios de advocacia: captação automática do DJEN, prazos, processos, CRM, WhatsApp e financeiro num lugar só.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Junge&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Junge&display=swap" rel="stylesheet">
 <style>
-/* NXO AGÊNCIA, SITE INSTITUCIONAL
-   Design system herdado da landing page original */
+  :root{
+    --cream:#fcfce6; --paper:#fffef5; --orange:#d16e30; --orange-d:#b85c25;
+    --green:#3a664b; --green-d:#2b4c38; --green-dk:#16281d; --black:#111310;
+    --ink:#1e241d; --muted:#5f6a5c; --line:#e6e2c9;
+    --sans:'Josefin Sans',system-ui,sans-serif; --serif:'Junge',Georgia,serif;
+    --wrap:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-weight:700;line-height:1.12;color:var(--green-dk);letter-spacing:.005em;}
+  .display{font-family:var(--serif);font-weight:400;letter-spacing:0;}
+  .eyebrow{font-size:0.8rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:.02em;padding:14px 26px;border-radius:6px;cursor:pointer;border:1.5px solid transparent;transition:.18s;white-space:nowrap;}
+  .btn-orange{background:var(--orange);color:#fff;} .btn-orange:hover{background:var(--orange-d);transform:translateY(-1px);}
+  .btn-green{background:var(--green);color:#fff;} .btn-green:hover{background:var(--green-d);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;border-color:rgba(252,252,230,.3);color:var(--cream);} .btn-ghost:hover{background:rgba(252,252,230,.08);}
+  .btn-out{background:transparent;border-color:var(--green);color:var(--green);} .btn-out:hover{background:var(--green);color:#fff;}
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  .target{width:26px;height:26px;border-radius:50%;border:2px solid var(--orange);position:relative;flex-shrink:0;}
+  .target::after{content:"";position:absolute;inset:5px;border-radius:50%;border:2px solid var(--green);}
 
-/* TOKENS, Identidade visual oficial NXO Agência */
-:root {
-  --ink:    #0b120a;   /* verde-preto oficial da marca (#090F05, levemente ajustado p/ contraste) */
-  --ink2:   #161f14;   /* variação mais clara do ink, p/ cards/seções alternadas */
-  --green:  #3a664b;   /* verde oficial da marca (cor do símbolo NXO) */
-  --green2: #4d7f60;   /* verde mais claro, hover/destaques */
-  --orange: #d16e30;   /* laranja oficial da marca */
-  --orange2:#e2884f;   /* laranja mais claro, hover */
-  --cream:  #fcfce6;   /* creme oficial da marca */
-  --cream2: #f0f0d8;
-  --muted:  #8a9186;
-  --white:  #ffffff;
+  header{position:sticky;top:0;z-index:50;background:rgba(252,252,230,.82);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.25s;}
+  header.scrolled{background:rgba(252,252,230,.96);border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:baseline;gap:2px;}
+  .brand b{font-family:var(--sans);font-weight:700;font-size:1.5rem;color:var(--green-dk);letter-spacing:.12em;}
+  .brand b .x{color:var(--orange);}
+  .brand span{font-size:0.7rem;color:var(--muted);letter-spacing:.24em;text-transform:uppercase;margin-left:4px;}
+  .nav-links{display:flex;gap:28px;font-size:0.94rem;color:var(--muted);font-weight:500;letter-spacing:.02em;}
+  .nav-links a:hover{color:var(--green-dk);}
+  .nav-cta{display:flex;gap:10px;align-items:center;}
+  .menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green-dk);}
+  @media(max-width:880px){.nav-links{display:none;} .nav .btn-out{display:none;} }
 
-  --f-display: 'Josefin Sans', system-ui, sans-serif;
-  --f-body:    'Josefin Sans', system-ui, sans-serif;
-  --f-italic:  'Junge', Georgia, serif;
+  .hero{background:var(--green-dk);color:var(--cream);position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;right:-140px;top:-120px;width:460px;height:460px;border-radius:50%;border:60px solid rgba(209,110,48,.14);pointer-events:none;}
+  .hero::after{content:"";position:absolute;left:-90px;bottom:-90px;width:240px;height:240px;border-radius:50%;border:34px solid rgba(58,102,75,.5);pointer-events:none;}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding:78px 24px 92px;}
+  .hero .eyebrow{color:var(--orange);}
+  .hero h1{color:#fff;font-size:3.4rem;margin:16px 0 0;}
+  .hero h1 .g{color:var(--orange);}
+  .hero p.sub{font-size:1.18rem;color:#dfe6da;margin-top:20px;max-width:34ch;font-weight:300;}
+  .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+  .hero .trust{margin-top:26px;font-size:0.88rem;color:#b9c6bb;display:flex;gap:9px;align-items:center;}
+  .hero .trust b{color:#fff;font-weight:600;}
+  @media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:34px;padding:52px 24px 62px;} .hero h1{font-size:2.5rem;} .hero p.sub{max-width:none;}}
 
-  --ease: cubic-bezier(.22,.68,0,1.2);
-  --ease-out: cubic-bezier(.2,.8,.2,1);
-}
+  .mock{background:var(--paper);border-radius:14px;box-shadow:0 30px 60px -22px rgba(0,0,0,.5);overflow:hidden;color:var(--ink);}
+  .mock .bar{height:38px;background:var(--cream);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 14px;}
+  .mock .bar i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .mock .bar i:nth-child(1){background:var(--orange);} .mock .bar i:nth-child(2){background:var(--green);} .mock .bar i:nth-child(3){background:#cfc9ab;}
+  .mock .bd{padding:16px;}
+  .mock .mh{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600;}
+  .mock .row{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:9px;margin-top:9px;}
+  .mock .tag{font-size:0.62rem;font-weight:700;padding:3px 9px;border-radius:999px;}
+  .mock .tag.red{background:rgba(209,110,48,.14);color:var(--orange-d);}
+  .mock .tag.amber{background:rgba(209,110,48,.1);color:var(--orange-d);}
+  .mock .tag.green{background:rgba(58,102,75,.12);color:var(--green);}
+  .mock .rt{flex:1;font-size:0.82rem;font-weight:500;}
+  .mock .rd{font-size:0.72rem;color:var(--muted);}
+  .mock .kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:12px;}
+  .mock .kpi{background:var(--cream);border-radius:9px;padding:10px;}
+  .mock .kpi .v{font-family:var(--serif);font-size:1.25rem;color:var(--green-dk);}
+  .mock .kpi .l{font-size:0.64rem;color:var(--muted);}
 
-/* RESET */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: var(--f-body);
-  background: var(--ink);
-  color: var(--cream);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration: none; }
-img, svg { display: block; max-width: 100%; }
-button { cursor: pointer; border: none; background: none; font-family: inherit; }
+  .strip{background:var(--black);color:#cfc9ab;}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:center;padding:16px 24px;font-size:0.88rem;font-weight:500;letter-spacing:.02em;}
+  .strip span{display:inline-flex;align-items:center;gap:8px;} .strip .dot{color:var(--orange);}
 
-.hero-headline, .problem-head, .services-head, .process-head, .cta-head,
-.service-title, .step-title, .solution-text strong, .hero-stat .num,
-.step-num, .marquee-track span, .drawer a, .footer-logo, .nav-logo,
-.section-label, .problem-label, .hero-eyebrow, .cta-eyebrow,
-.page-title, .case-title, .form-title, .about-head {
-  font-weight: 700;
-}
+  section{padding:88px 0;}
+  .sec-head{max-width:660px;margin:0 auto 46px;text-align:center;}
+  .sec-head h2{font-size:2.4rem;margin-top:12px;}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin-top:14px;font-weight:300;}
 
-/* NAVBAR */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px clamp(20px,5vw,72px);
-  transition: background .4s, backdrop-filter .4s;
-}
-.nav.scrolled {
-  background: rgba(13,13,13,.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.nav-logo {
-  font-family: var(--f-display);
-  font-size: 28px;
-  letter-spacing: 2px;
-  color: var(--cream);
-  display: flex; align-items: center; gap: 2px;
-}
-.nav-logo span { color: var(--orange); }
-.nav-logo .logo-svg { height: 30px; width: auto; display: block; color: var(--cream); }
-.nav-logo:hover .logo-svg { color: var(--orange); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  font-size: 13px; font-weight: 500; letter-spacing: .5px;
-  color: rgba(245,240,232,.65);
-  transition: color .2s;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--orange); }
-.nav-cta {
-  background: var(--orange);
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 6px;
-  font-size: 13px; font-weight: 700; letter-spacing: .5px;
-  transition: background .2s, transform .15s;
-}
-.nav-cta:hover { background: var(--orange2); transform: translateY(-1px); }
-.nav-burger { display: none; color: var(--cream); font-size: 22px; }
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .nav { align-items: center; }
-  .nav-burger { display: flex; align-items: center; justify-content: center; height: 34px; line-height: 1; padding: 0; }
-  .nav-logo { display: flex; align-items: center; }
-  .nav-logo .logo-svg { height: 26px; }
-}
+  .problem{background:var(--paper);}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .pcard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:24px;position:relative;overflow:hidden;}
+  .pcard::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:var(--orange);}
+  .pcard h3{font-size:1.15rem;font-weight:600;color:var(--green-dk);}
+  .pcard p{color:var(--muted);font-size:0.96rem;margin-top:8px;font-weight:300;}
+  @media(max-width:880px){.pgrid{grid-template-columns:1fr;}}
 
-/* mobile drawer */
-.drawer {
-  position: fixed; inset: 0; z-index: 200;
-  background: var(--ink);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 32px;
-  opacity: 0; pointer-events: none;
-  transition: opacity .3s;
-}
-.drawer.open { opacity: 1; pointer-events: all; }
-.drawer a { font-family: var(--f-display); font-size: 40px; color: var(--cream); letter-spacing: 2px; }
-.drawer a:hover, .drawer a.active { color: var(--orange); }
-.drawer-close {
-  position: absolute; top: 22px; right: 28px;
-  font-size: 28px; color: var(--cream);
-}
+  .sol .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .scard{display:flex;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
+  .scard .n{font-family:var(--serif);font-size:1.6rem;color:var(--orange);flex-shrink:0;width:36px;}
+  .scard h3{font-size:1.15rem;font-weight:600;color:var(--green-dk);}
+  .scard p{color:var(--muted);font-size:0.96rem;margin-top:6px;font-weight:300;}
+  .scard .win{display:inline-block;margin-top:10px;font-size:0.8rem;font-weight:600;color:#fff;background:var(--green);border-radius:5px;padding:4px 11px;}
+  @media(max-width:880px){.sol .grid{grid-template-columns:1fr;}}
 
-/* HERO (home) */
-.hero {
-  min-height: 100svh;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  padding: clamp(100px,14vw,160px) clamp(20px,6vw,72px) clamp(50px,6vw,80px);
-  position: relative;
-  overflow: hidden;
-  background: var(--ink);
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 200px;
-  opacity: .045;
-  pointer-events: none;
-}
-.hero-eyebrow {
-  position: relative; z-index: 1;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 11px; font-weight: 600; letter-spacing: 2px;
-  color: var(--green2);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block; display:none;
-  background: var(--green2);
-}
-.hero-headline {
-  position: relative; z-index: 1;
-  font-family: var(--f-display);
-  font-size: clamp(64px, 12vw, 160px);
-  line-height: .92;
-  letter-spacing: -1px;
-  color: var(--cream);
-  max-width: 12ch;
-}
-.hero-headline .masked {
-  display: block;
-  background: linear-gradient(135deg, var(--green2) 0%, var(--orange) 45%, var(--orange2) 70%, var(--green2) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-}
-.hero-sub {
-  position: relative; z-index: 1;
-  margin-top: 32px;
-  font-size: clamp(16px,2.2vw,20px);
-  color: rgba(245,240,232,.6);
-  max-width: 42ch;
-  line-height: 1.55;
-}
-.hero-sub em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--cream);
-}
-.hero-actions {
-  position: relative; z-index: 1;
-  margin-top: 40px;
-  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-}
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--orange);
-  color: #fff;
-  padding: 16px 32px;
-  border-radius: 6px;
-  font-weight: 700; font-size: 15px; letter-spacing: .3px;
-  box-shadow: 0 8px 32px rgba(224,112,32,.35);
-  transition: background .2s, transform .2s, box-shadow .2s;
-}
-.btn-primary:hover {
-  background: var(--orange2);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 40px rgba(224,112,32,.5);
-}
-.btn-primary svg { width: 18px; height: 18px; flex-shrink: 0; }
-.btn-ghost {
-  font-size: 14px; font-weight: 500;
-  color: rgba(245,240,232,.55);
-  display: flex; align-items: center; gap: 6px;
-  transition: color .2s;
-}
-.btn-ghost:hover { color: var(--cream); }
-.btn-ghost::after { content: '→'; transition: transform .2s; }
-.btn-ghost:hover::after { transform: translateX(3px); }
+  .features{background:var(--paper);}
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .fcard{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--cream);}
+  .fcard .ic{width:46px;height:46px;border-radius:12px;background:var(--green-dk);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1.3rem;}
+  .fcard h3{font-size:1.1rem;font-weight:600;color:var(--green-dk);}
+  .fcard p{color:var(--muted);font-size:0.92rem;margin-top:6px;font-weight:300;}
+  @media(max-width:880px){.fgrid{grid-template-columns:1fr;}}
 
-.hero-bar {
-  position: relative; z-index: 1;
-  margin-top: 64px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(245,240,232,.1);
-  display: flex; align-items: center; gap: clamp(24px,5vw,64px);
-  flex-wrap: wrap;
-}
-.hero-stat {}
-.hero-stat .num {
-  font-family: var(--f-display);
-  font-size: clamp(36px,5vw,56px);
-  color: var(--orange);
-  line-height: 1;
-}
-.hero-stat .label {
-  font-size: 12px; color: rgba(245,240,232,.5);
-  letter-spacing: .5px; margin-top: 4px;
-}
-.hero-bar-divider {
-  width: 1px; height: 48px;
-  background: rgba(245,240,232,.12);
-  flex-shrink: 0;
-}
-.hero-deco {
-  position: absolute;
-  right: clamp(20px,8vw,120px);
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(180px,22vw,320px);
-  aspect-ratio: 1;
-  border: 2px solid rgba(58,102,75,.25);
-  border-radius: 4px;
-  z-index: 0;
-  display: flex; align-items: center; justify-content: center;
-  padding: 32px;
-}
-.hero-deco img {
-  width: 100%;
-  height: auto;
-  opacity: .13;
-  filter: brightness(10);
-  display: block;
-}
-@media (max-width: 768px) { .hero-deco { display: none; } }
+  .steps .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .step{text-align:center;}
+  .step .num{width:54px;height:54px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--serif);font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .step h3{font-size:1.15rem;font-weight:600;}
+  .step p{color:var(--muted);font-size:0.96rem;margin-top:8px;font-weight:300;}
+  @media(max-width:880px){.steps .grid{grid-template-columns:1fr;gap:30px;}}
 
-/* PAGE HERO (páginas internas) */
-.page-hero {
-  padding: clamp(140px,16vw,190px) clamp(20px,6vw,72px) clamp(60px,8vw,90px);
-  background: var(--ink);
-  position: relative;
-  overflow: hidden;
-}
-.page-hero::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 200px;
-  opacity: .045;
-  pointer-events: none;
-}
-.page-crumb {
-  position: relative; z-index: 1;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 11px; font-weight: 600; letter-spacing: 2px;
-  color: var(--green2);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.page-crumb::before { content: ''; display: block; display:none; background: var(--green2); }
-.page-title {
-  position: relative; z-index: 1;
-  font-family: var(--f-display);
-  font-size: clamp(48px,8vw,96px);
-  line-height: .95;
-  letter-spacing: -1px;
-  max-width: 16ch;
-}
-.page-title em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--green2);
-  font-size: .75em;
-}
-.page-sub {
-  position: relative; z-index: 1;
-  margin-top: 24px;
-  font-size: clamp(15px,2vw,18px);
-  color: rgba(245,240,232,.6);
-  max-width: 52ch;
-  line-height: 1.6;
-}
+  .roi{background:var(--green);color:#fff;}
+  .roi .sec-head h2,.roi .eyebrow{color:#fff;} .roi .eyebrow{color:#f2c39a;}
+  .roi .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .roi .box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:26px;}
+  .roi .box h3{font-family:var(--serif);color:#fff;font-size:1.4rem;margin-bottom:14px;font-weight:400;}
+  .roi .box.lose h3{color:#f0b48c;} .roi .box.win h3{color:#bfe0cb;}
+  .roi .li{display:flex;gap:10px;color:#e9efe6;font-size:0.98rem;margin-bottom:10px;font-weight:300;}
+  .roi .li .mk{font-weight:700;} .lose .mk{color:#f0b48c;} .win .mk{color:#bfe0cb;}
+  .roi .quote{margin-top:26px;text-align:center;font-family:var(--serif);font-size:1.6rem;line-height:1.35;color:#fff;}
+  .roi .quote .g{color:var(--orange);}
+  @media(max-width:880px){.roi .cols{grid-template-columns:1fr;} .roi .quote{font-size:1.25rem;}}
 
-/* MARQUEE */
-.marquee-wrap {
-  overflow: hidden;
-  background: #0d1710;
-  border-top: 1px solid rgba(209,110,48,.22);
-  border-bottom: 1px solid rgba(209,110,48,.22);
-  padding: 20px 0;
-  position: relative;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
-}
-.marquee-track {
-  display: flex; gap: 0;
-  width: max-content;
-  animation: marquee 42s linear infinite;
-}
-.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-.marquee-track span {
-  font-family: var(--f-display);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(252,252,230,.5);
-  white-space: nowrap;
-  padding: 0 38px;
-}
-.marquee-track span.accent { color: var(--orange); }
-.marquee-track span.sep {
-  color: rgba(252,252,230,.22);
-  padding: 0;
-  font-size: 7px;
-  transform: translateY(-3px);
-}
-@keyframes marquee { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
-  .marquee-wrap { -webkit-mask-image: none; mask-image: none; }
-}
+  .plans .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;}
+  .plan.hi{border:2px solid var(--orange);box-shadow:0 20px 40px -26px rgba(209,110,48,.5);}
+  .plan .badge{align-self:flex-start;font-size:0.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:5px;padding:4px 10px;margin-bottom:12px;}
+  .plan .nm{font-weight:600;color:var(--green-dk);font-size:1.2rem;letter-spacing:.03em;}
+  .plan .pr{font-family:var(--serif);font-size:2.2rem;color:var(--ink);margin:8px 0 2px;}
+  .plan .pr small{font-size:0.95rem;color:var(--muted);font-family:var(--sans);}
+  .plan .ds{font-size:0.9rem;color:var(--muted);margin-bottom:16px;min-height:46px;font-weight:300;}
+  .plan ul{list-style:none;border-top:1px solid var(--line);padding-top:14px;margin-bottom:18px;flex:1;}
+  .plan li{font-size:0.92rem;display:flex;gap:9px;margin-bottom:9px;color:var(--ink);font-weight:300;}
+  .plan li .c{color:var(--green);font-weight:700;}
+  @media(max-width:880px){.plans .grid{grid-template-columns:1fr;}}
 
-/* PROBLEM */
-.problem {
-  background: var(--cream);
-  color: var(--ink);
-  padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
-}
-.problem-label {
-  font-size: 11px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--green);
-  margin-bottom: 20px;
-}
-.problem-head {
-  font-family: var(--f-display);
-  font-size: clamp(40px,6vw,80px);
-  line-height: .95;
-  max-width: 18ch;
-  margin-bottom: 56px;
-  color: var(--ink);
-}
-.problem-head em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-size: .72em;
-  color: var(--green);
-}
-.pain-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  background: rgba(13,13,13,.1);
-  border: 2px solid rgba(13,13,13,.1);
-}
-@media (max-width: 640px) { .pain-grid { grid-template-columns: 1fr; } }
-.pain-item {
-  background: var(--cream);
-  padding: 32px 28px;
-  display: flex; gap: 18px; align-items: flex-start;
-  transition: background .2s, transform .2s;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  overflow: hidden;
-}
-.pain-item::after {
-  content: 'Ver solução →';
-  position: absolute;
-  bottom: 14px; right: 20px;
-  font-size: 11px; font-weight: 700; letter-spacing: .5px;
-  color: var(--green);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity .2s, transform .2s;
-  text-transform: uppercase;
-}
-.pain-item:hover { background: var(--cream2); transform: translateY(-2px); }
-.pain-item:hover::after { opacity: 1; transform: translateY(0); }
-.pain-num {
-  font-family: var(--f-display);
-  font-size: 13px;
-  color: var(--green);
-  opacity: .5;
-  letter-spacing: 1px;
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-.pain-text {
-  font-size: clamp(15px,1.8vw,18px);
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--ink);
-}
-.problem-solution {
-  margin-top: 56px;
-  padding: 40px;
-  background: var(--ink);
-  color: var(--cream);
-  display: flex; align-items: center; gap: 28px;
-  flex-wrap: wrap;
-  border-radius: 4px;
-}
-.solution-icon {
-  width: 64px; height: 64px;
-  background: var(--orange);
-  border-radius: 50%;
-  display: grid; place-items: center;
-  flex-shrink: 0;
-}
-.solution-icon svg { width: 30px; height: 30px; }
-.solution-text { flex: 1; min-width: 240px; }
-.solution-text strong {
-  display: block;
-  font-family: var(--f-display);
-  font-size: clamp(24px,3vw,36px);
-  letter-spacing: 1px;
-  color: var(--orange);
-  margin-bottom: 8px;
-}
-.solution-text p { font-size: 15px; color: rgba(245,240,232,.7); line-height: 1.55; }
-.solution-text em { font-family: var(--f-italic); font-style: italic; color: var(--cream); }
+  .faq{background:var(--paper);}
+  .faq .wrap{max-width:760px;}
+  .qa{border-bottom:1px solid var(--line);}
+  .qa button{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:var(--sans);font-weight:600;font-size:1.08rem;color:var(--green-dk);cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:0.98rem;font-weight:300;}
+  .qa.open .ans{max-height:260px;} .qa .ans p{padding-bottom:20px;}
+  .qa .pl{color:var(--orange);font-size:1.5rem;transition:.2s;flex-shrink:0;line-height:1;}
+  .qa.open .pl{transform:rotate(45deg);}
 
-/* SERVICES */
-.services {
-  background: var(--ink2);
-  padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
-}
-.section-label {
-  font-size: 11px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--green);
-  margin-bottom: 20px;
-}
-.services-head {
-  font-family: var(--f-display);
-  font-size: clamp(40px,5.5vw,72px);
-  line-height: .95;
-  margin-bottom: 56px;
-  max-width: 20ch;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: rgba(255,255,255,.05);
-  border: 2px solid rgba(255,255,255,.05);
-}
-@media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
-.service-card {
-  background: var(--ink2);
-  padding: 40px 32px 36px;
-  transition: background .25s;
-  position: relative;
-  overflow: hidden;
-}
-.service-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0;
-  width: 3px; height: 0;
-  background: var(--orange);
-  transition: height .4s var(--ease-out);
-}
-.service-card:hover { background: #1f1f1f; }
-.service-card:hover::before { height: 100%; }
-.service-icon {
-  width: 48px; height: 48px;
-  background: rgba(58,102,75,.18);
-  border-radius: 10px;
-  display: grid; place-items: center;
-  margin-bottom: 24px;
-}
-.service-icon svg { width: 22px; height: 22px; color: var(--green2); }
-.service-title {
-  font-family: var(--f-display);
-  font-size: clamp(22px,2.5vw,30px);
-  letter-spacing: 1px;
-  color: var(--cream);
-  margin-bottom: 12px;
-}
-.service-desc {
-  font-size: 14px; line-height: 1.65;
-  color: rgba(245,240,232,.55);
-}
-.service-items {
-  margin-top: 20px; list-style: none;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.service-items li {
-  font-size: 13px;
-  color: rgba(245,240,232,.45);
-  display: flex; gap: 8px; align-items: center;
-}
-.service-items li::before {
-  content: '';
-  display: block; width: 4px; height: 4px;
-  border-radius: 50%; background: var(--orange);
-  flex-shrink: 0;
-}
-.service-price {
-  margin-top: 24px; padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  display: flex; align-items: baseline; gap: 8px;
-}
-.service-price .from { font-size: 11px; color: rgba(245,240,232,.4); text-transform: uppercase; letter-spacing: 1px; }
-.service-price .val { font-family: var(--f-display); font-size: 20px; color: var(--orange); }
-.service-card-cta {
-  margin-top: 20px;
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: var(--orange);
-}
-.service-card-cta::after { content: '→'; transition: transform .2s; }
-.service-card:hover .service-card-cta::after { transform: translateX(3px); }
+  .final{background:var(--black);color:var(--cream);text-align:center;position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;left:50%;top:-160px;transform:translateX(-50%);width:420px;height:420px;border-radius:50%;border:50px solid rgba(209,110,48,.12);pointer-events:none;}
+  .final .wrap{position:relative;}
+  .final h2{color:#fff;font-size:2.6rem;} .final h2 .g{color:var(--orange);}
+  .final p{color:#cfc9ab;font-size:1.12rem;margin:16px auto 0;max-width:60ch;font-weight:300;}
+  .final .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .final .guar{margin-top:22px;font-size:0.92rem;color:#a39d84;}
 
-/* COMO FUNCIONA / PROCESSO */
-.process {
-  background: var(--ink);
-  padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
-}
-.process-head {
-  font-family: var(--f-display);
-  font-size: clamp(40px,5.5vw,72px);
-  line-height: .95;
-  margin-bottom: 64px;
-  max-width: 20ch;
-}
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  position: relative;
-}
-@media (max-width: 860px) { .process-steps { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 480px) { .process-steps { grid-template-columns: 1fr; } }
-.process-steps::before {
-  content: '';
-  position: absolute;
-  top: 36px; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(58,102,75,.5) 20%, rgba(58,102,75,.5) 80%, transparent);
-  z-index: 0;
-}
-@media (max-width: 860px) { .process-steps::before { display: none; } }
-.process-step {
-  position: relative; z-index: 1;
-  padding: 0 24px 0 0;
-}
-.step-num {
-  width: 72px; height: 72px;
-  border: 1px solid rgba(58,102,75,.4);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--f-display);
-  font-size: 26px;
-  color: var(--green2);
-  background: var(--ink);
-  margin-bottom: 28px;
-  position: relative;
-}
-.step-num::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px dashed rgba(58,102,75,.25);
-}
-.step-title {
-  font-family: var(--f-display);
-  font-size: clamp(18px,2vw,24px);
-  letter-spacing: 1px;
-  color: var(--cream);
-  margin-bottom: 12px;
-}
-.step-desc {
-  font-size: 14px; line-height: 1.6;
-  color: rgba(245,240,232,.5);
-}
+  footer{background:var(--green-dk);color:#b9c6bb;padding:40px 0;font-size:0.92rem;}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;}
+  footer a:hover{color:#fff;}
 
-/* PORTFÓLIO / CASES */
-.portfolio {
-  background: var(--ink2);
-  padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
-}
-.case-filter {
-  display: flex; gap: 10px; flex-wrap: wrap;
-  margin-bottom: 48px;
-}
-.case-filter button {
-  font-size: 12px; font-weight: 600; letter-spacing: .5px;
-  color: rgba(245,240,232,.55);
-  padding: 9px 18px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 30px;
-  transition: all .2s;
-  text-transform: uppercase;
-}
-.case-filter button:hover { color: var(--cream); border-color: rgba(255,255,255,.3); }
-.case-filter button.active {
-  background: var(--orange); color: #fff; border-color: var(--orange);
-}
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-@media (max-width: 980px) { .case-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 620px) { .case-grid { grid-template-columns: 1fr; } }
-.case-card {
-  background: var(--ink);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform .3s var(--ease-out), border-color .3s;
-  display: flex; flex-direction: column;
-}
-.case-card:hover { transform: translateY(-6px); border-color: rgba(224,112,32,.4); }
-.case-cover {
-  aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--green) 0%, #16241a 100%);
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.case-cover::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 200px;
-  opacity: .12;
-}
-.case-cover span {
-  position: relative; z-index: 1;
-  font-family: var(--f-display);
-  font-size: 15px; letter-spacing: 2px;
-  color: rgba(255,255,255,.85);
-  text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,.4);
-  padding: 8px 16px; border-radius: 30px;
-}
-.case-body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
-.case-tag {
-  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--green2);
-  margin-bottom: 10px;
-}
-.case-title {
-  font-family: var(--f-display);
-  font-size: 22px; letter-spacing: .5px;
-  color: var(--cream);
-  margin-bottom: 10px;
-}
-.case-desc { font-size: 13.5px; color: rgba(245,240,232,.5); line-height: 1.6; flex: 1; }
-.case-stats { display: flex; gap: 20px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.07); }
-.case-stat .num { font-family: var(--f-display); font-size: 22px; color: var(--orange); line-height: 1; }
-.case-stat .label { font-size: 10px; color: rgba(245,240,232,.4); letter-spacing: .5px; margin-top: 3px; text-transform: uppercase; }
-
-/* SOBRE */
-.about {
-  background: var(--cream); color: var(--ink);
-  padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
-}
-.about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; }
-@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
-.about-head {
-  font-family: var(--f-display);
-  font-size: clamp(34px,4.5vw,56px);
-  line-height: 1.02;
-  margin-bottom: 24px;
-}
-.about-head em { font-family: var(--f-italic); font-style: italic; color: var(--green); }
-.about-text p { font-size: 15.5px; line-height: 1.75; color: rgba(13,13,13,.72); margin-bottom: 16px; }
-.about-values { display: flex; flex-direction: column; gap: 2px; background: rgba(13,13,13,.1); border: 2px solid rgba(13,13,13,.1); }
-.about-value { background: var(--cream); padding: 24px 26px; display: flex; gap: 16px; }
-.about-value:hover { background: var(--cream2); }
-.about-value .n { font-family: var(--f-display); color: var(--green); font-size: 13px; opacity: .6; flex-shrink: 0; margin-top: 3px; }
-.about-value strong { display: block; font-family: var(--f-display); font-size: 16px; margin-bottom: 4px; }
-.about-value p { font-size: 13.5px; color: rgba(13,13,13,.6); line-height: 1.5; }
-
-/* CONTATO */
-.contact {
-  background: var(--ink);
-  padding: clamp(70px,10vw,120px) clamp(20px,6vw,72px);
-}
-.contact-grid {
-  display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px;
-}
-@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
-.contact-info-item {
-  display: flex; gap: 18px; align-items: flex-start;
-  padding: 22px 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.contact-info-item:first-child { padding-top: 0; }
-.contact-icon {
-  width: 44px; height: 44px; flex-shrink: 0;
-  background: rgba(58,102,75,.18);
-  border-radius: 10px;
-  display: grid; place-items: center;
-}
-.contact-icon svg { width: 20px; height: 20px; color: var(--green2); }
-.contact-info-item strong { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,240,232,.4); margin-bottom: 6px; }
-.contact-info-item a, .contact-info-item span.val { font-size: 16px; color: var(--cream); font-weight: 500; }
-.contact-info-item a:hover { color: var(--orange); }
-.contact-socials { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
-.contact-socials a {
-  width: 44px; height: 44px; border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.1);
-  display: grid; place-items: center; color: rgba(245,240,232,.55);
-  transition: all .2s;
-}
-.contact-socials a:hover { border-color: var(--orange); color: var(--orange); background: rgba(224,112,32,.08); }
-.contact-socials svg { width: 18px; height: 18px; }
-
-.form-title {
-  font-family: var(--f-display);
-  font-size: clamp(24px,3vw,32px);
-  margin-bottom: 8px;
-}
-.form-sub { font-size: 14px; color: rgba(245,240,232,.5); margin-bottom: 32px; }
-.field { margin-bottom: 20px; }
-.field label {
-  display: block; font-size: 12px; font-weight: 600; letter-spacing: .5px;
-  text-transform: uppercase; color: rgba(245,240,232,.5); margin-bottom: 8px;
-}
-.field input, .field select, .field textarea {
-  width: 100%;
-  background: var(--ink2);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 6px;
-  padding: 14px 16px;
-  font-family: var(--f-body);
-  font-size: 14.5px;
-  color: var(--cream);
-  transition: border-color .2s, background .2s;
-}
-.field select { appearance: none; -webkit-appearance:none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e07020' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; }
-.field textarea { resize: vertical; min-height: 120px; }
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--orange); background: #1f1f1f;
-}
-.field input::placeholder, .field textarea::placeholder { color: rgba(245,240,232,.3); }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
-.btn-submit {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--orange); color: #fff;
-  padding: 16px 34px; border-radius: 6px;
-  font-weight: 700; font-size: 15px;
-  box-shadow: 0 8px 32px rgba(224,112,32,.35);
-  transition: background .2s, transform .2s, box-shadow .2s;
-  width: 100%; justify-content: center;
-}
-.btn-submit:hover { background: var(--orange2); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(224,112,32,.5); }
-.btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-.form-note { font-size: 12px; color: rgba(245,240,232,.35); margin-top: 14px; text-align: center; }
-.form-success {
-  display: none;
-  background: rgba(58,102,75,.15);
-  border: 1px solid rgba(58,102,75,.4);
-  border-radius: 8px;
-  padding: 24px;
-  text-align: center;
-}
-.form-success.show { display: block; }
-.form-success strong { display: block; font-family: var(--f-display); color: var(--green2); font-size: 18px; margin-bottom: 6px; }
-.form-success p { font-size: 13.5px; color: rgba(245,240,232,.6); }
-
-/* map / faixa de mapa opcional */
-.map-strip {
-  margin-top: 64px;
-  padding: 28px 32px;
-  background: var(--ink2);
-  border-radius: 8px;
-  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-}
-.map-strip svg { width: 28px; height: 28px; color: var(--green2); flex-shrink: 0; }
-.map-strip p { font-size: 14px; color: rgba(245,240,232,.6); }
-.map-strip strong { color: var(--cream); }
-
-/* CTA FINAL */
-.cta-section {
-  background: var(--ink);
-  padding: clamp(80px,12vw,140px) clamp(20px,6vw,72px);
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: 'NXO';
-  position: absolute;
-  font-family: var(--f-display);
-  font-size: clamp(200px,30vw,420px);
-  color: rgba(224,112,32,.04);
-  bottom: -40px; right: -20px;
-  line-height: 1;
-  pointer-events: none;
-  letter-spacing: -4px;
-}
-.cta-inner {
-  position: relative; z-index: 1;
-  max-width: 800px;
-}
-.cta-eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--orange);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 12px;
-}
-.cta-eyebrow::before {
-  content: ''; display: block;
-  display:none; background: var(--orange);
-}
-.cta-head {
-  font-family: var(--f-display);
-  font-size: clamp(52px,8vw,110px);
-  line-height: .92;
-  letter-spacing: -1px;
-  margin-bottom: 28px;
-}
-.cta-head span { color: var(--orange); }
-.cta-sub {
-  font-size: clamp(15px,2vw,18px);
-  color: rgba(245,240,232,.6);
-  line-height: 1.55;
-  max-width: 44ch;
-  margin-bottom: 44px;
-}
-.cta-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.btn-big {
-  display: inline-flex; align-items: center; gap: 12px;
-  background: var(--orange); color: #fff;
-  padding: 20px 40px; border-radius: 6px;
-  font-weight: 700; font-size: 17px;
-  box-shadow: 0 10px 40px rgba(224,112,32,.4);
-  transition: background .2s, transform .2s, box-shadow .2s;
-}
-.btn-big:hover { background: var(--orange2); transform: translateY(-2px); box-shadow: 0 18px 50px rgba(224,112,32,.55); }
-.btn-big svg { width: 22px; height: 22px; }
-.cta-note { font-size: 13px; color: rgba(245,240,232,.35); display: flex; align-items: center; gap: 6px; }
-
-/* FOOTER */
-.footer {
-  background: #080808;
-  padding: 48px clamp(20px,6vw,72px) 32px;
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-.footer-top {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  flex-wrap: wrap; gap: 32px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  margin-bottom: 28px;
-}
-.footer-col h4 {
-  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(245,240,232,.4); margin-bottom: 16px;
-}
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 14px; color: rgba(245,240,232,.65); transition: color .2s; }
-.footer-links a:hover { color: var(--orange); }
-.footer-logo {
-  font-family: var(--f-display);
-  font-size: 32px; letter-spacing: 2px;
-}
-.footer-logo span { color: var(--orange); }
-.footer-logo small {
-  display: block; font-family: var(--f-body);
-  font-size: 11px; letter-spacing: 2px;
-  color: rgba(245,240,232,.35); font-weight: 500;
-  margin-top: 4px;
-}
-.footer-logo .logo-svg { height: 50px; width: auto; display: block; color: var(--cream); }
-.footer-socials { display: flex; gap: 12px; flex-wrap: wrap; }
-.footer-socials a {
-  width: 40px; height: 40px;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 6px;
-  display: grid; place-items: center;
-  color: rgba(245,240,232,.5);
-  transition: border-color .2s, color .2s, background .2s;
-}
-.footer-socials a:hover { border-color: var(--orange); color: var(--orange); background: rgba(224,112,32,.08); }
-.footer-socials svg { width: 16px; height: 16px; }
-.footer-copy {
-  font-size: 12px; color: rgba(245,240,232,.25);
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-}
-.footer-copy a { color: rgba(245,240,232,.35); }
-.footer-copy a:hover { color: var(--orange); }
-
-/* REVEAL ON SCROLL */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .65s var(--ease-out), transform .65s var(--ease-out);
-}
-.reveal.in { opacity: 1; transform: none; }
-.reveal-delay-1 { transition-delay: .1s; }
-.reveal-delay-2 { transition-delay: .2s; }
-.reveal-delay-3 { transition-delay: .3s; }
-.reveal-delay-4 { transition-delay: .4s; }
-
-/* BOTÃO FLUTUANTE WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  bottom: 24px; right: 24px;
-  z-index: 150;
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background: #25D366;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 24px rgba(0,0,0,.35);
-  transition: transform .2s, box-shadow .2s;
-}
-.whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
-.whatsapp-float svg { width: 30px; height: 30px; }
-.whatsapp-float::before {
-  content: '';
-  position: absolute; inset: 0;
-  border-radius: 50%;
-  background: #25D366;
-  animation: wa-pulse 2.4s ease-out infinite;
-  z-index: -1;
-}
-@keyframes wa-pulse {
-  0% { transform: scale(1); opacity: .55; }
-  100% { transform: scale(1.9); opacity: 0; }
-}
-@media (max-width: 640px) {
-  .whatsapp-float { bottom: 18px; right: 18px; width: 54px; height: 54px; }
-  .whatsapp-float svg { width: 26px; height: 26px; }
-}
-
-/* A11y (invisível no uso normal): foco de teclado + respeito a reduced-motion */
-:focus-visible{outline:2px solid var(--orange, var(--gold, var(--wine, #e07020)));outline-offset:2px}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1 !important;transform:none !important;transition:none !important}
-  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}
-}
+  .wafloat{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--orange);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:.18s;}
+  .wafloat:hover{transform:scale(1.06);background:var(--orange-d);}
 </style>
 </head>
 <body>
@@ -1034,513 +222,191 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       <a class="btn-ghost" href="servicos.html">Ver o que fazemos</a>
     </div>
   </div>
-
-  <div class="hero-bar">
-    <div class="hero-stat">
-      <div class="num">100%</div>
-      <div class="label">Focado no seu resultado</div>
-    </div>
-    <div class="hero-bar-divider"></div>
-    <div class="hero-stat">
-      <div class="num">3</div>
-      <div class="label">Frentes: identidade, presença e tráfego</div>
-    </div>
-    <div class="hero-bar-divider"></div>
-    <div class="hero-stat">
-      <div class="num">0</div>
-      <div class="label">Complicação, só resultado</div>
-    </div>
-  </div>
-
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="accent">IDENTIDADE VISUAL</span><span class="sep">●</span>
-    <span>SITES &amp; LANDING PAGES</span><span class="sep">●</span>
-    <span class="accent">SOCIAL MEDIA</span><span class="sep">●</span>
-    <span>TRÁFEGO PAGO</span><span class="sep">●</span>
-    <span class="accent">GESTÃO DE MARCA</span><span class="sep">●</span>
-    <span>POSICIONAMENTO</span><span class="sep">●</span>
-    <span class="accent">IDENTIDADE VISUAL</span><span class="sep">●</span>
-    <span>SITES &amp; LANDING PAGES</span><span class="sep">●</span>
-    <span class="accent">SOCIAL MEDIA</span><span class="sep">●</span>
-    <span>TRÁFEGO PAGO</span><span class="sep">●</span>
-    <span class="accent">GESTÃO DE MARCA</span><span class="sep">●</span>
-    <span>POSICIONAMENTO</span><span class="sep">●</span>
+<div class="strip">
+  <div class="wrap">
+    <span><span class="dot">●</span> Captação automática do DJEN</span>
+    <span><span class="dot">●</span> CRM + WhatsApp de atendimento</span>
+    <span><span class="dot">●</span> Financeiro e fluxo de caixa</span>
+    <span><span class="dot">●</span> Processos, prazos e acordos</span>
   </div>
 </div>
 
-<!-- PROBLEMA -->
-<section class="problem" id="problema">
-  <p class="problem-label reveal">O problema que ninguém fala</p>
-  <h2 class="problem-head reveal">
-    Bom profissional.<br>
-    <em>Marca invisível.</em>
-  </h2>
-  <div class="pain-grid">
-    <a href="servicos.html" class="pain-item reveal">
-      <span class="pain-num">01</span>
-      <p class="pain-text">Seu Instagram não passa a credibilidade que seu trabalho merece</p>
-    </a>
-    <a href="servicos.html" class="pain-item reveal reveal-delay-1">
-      <span class="pain-num">02</span>
-      <p class="pain-text">Clientes chegam por indicação, e somem quando o movimento para</p>
-    </a>
-    <a href="servicos.html" class="pain-item reveal reveal-delay-2">
-      <span class="pain-num">03</span>
-      <p class="pain-text">Você sabe que precisa de marketing, mas não tem tempo de cuidar disso</p>
-    </a>
-    <a href="servicos.html" class="pain-item reveal reveal-delay-3">
-      <span class="pain-num">04</span>
-      <p class="pain-text">Feed sem padrão, sem estratégia, parece amador mesmo sendo profissional</p>
-    </a>
-  </div>
-
-  <div class="problem-solution reveal">
-    <div class="solution-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 18h6M12 2a7 7 0 0 1 4 12.9V17H8v-2.1A7 7 0 0 1 12 2z"/>
-      </svg>
+<section id="problema" class="problem">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">O problema</div>
+      <h2 class="display">Todo dia, o escritório perde dinheiro sem perceber.</h2>
+      <p>Não é falta de trabalho. É trabalho se perdendo no meio do caminho — prazos, clientes e honorários que escapam do papel e da planilha.</p>
     </div>
-    <div class="solution-text">
-      <strong>ISSO TEM SOLUÇÃO</strong>
-      <p>A NXO cuida da sua presença digital do zero ao completo, para que você possa focar no que faz de melhor: <em>o seu trabalho</em>.</p>
+    <div class="pgrid">
+      <div class="pcard rv"><h3>Um prazo esquecido</h3><p>A intimação some no diário, o prazo não é anotado, vem a preclusão. O dano é do cliente, mas a responsabilidade civil é do advogado.</p></div>
+      <div class="pcard rv"><h3>Conferir o diário na mão</h3><p>Leitura manual das publicações, em várias OABs, dependendo da memória de alguém. Um dia sem conferir já é risco.</p></div>
+      <div class="pcard rv"><h3>A consulta que some</h3><p>O cliente potencial entra em contato, ninguém retorna na hora certa, ele esfria e fecha com outro. Honorário na mesa.</p></div>
+      <div class="pcard rv"><h3>Financeiro no escuro</h3><p>Honorários que não são cobrados, parcelas atrasadas sem alerta, e a dúvida no fim do mês: quanto entrou, quanto falta.</p></div>
+      <div class="pcard rv"><h3>WhatsApp no celular pessoal</h3><p>Conversas soltas, sem histórico, sem saber quem respondeu — e o que se perde quando alguém sai da equipe.</p></div>
+      <div class="pcard rv"><h3>Equipe sem visão do dia</h3><p>Cada um com sua planilha, tarefas caindo, retrabalho, e o sócio sem enxergar a operação inteira.</p></div>
     </div>
   </div>
 </section>
 
-<!-- SERVIÇOS (resumo) -->
-<section class="services" id="servicos">
-  <p class="section-label reveal">O que entregamos</p>
-  <h2 class="services-head reveal">Tudo que sua marca precisa existir de verdade</h2>
-  <div class="services-grid">
-
-    <div class="service-card reveal">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-        </svg>
-      </div>
-      <h3 class="service-title">POSICIONAMENTO DIGITAL</h3>
-      <p class="service-desc">Identidade visual, logo e linguagem que fazem você ser reconhecido antes de ser lembrado.</p>
-      <a class="service-card-cta" href="servicos.html">Ver detalhes</a>
+<section id="solucao" class="sol">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">A virada</div>
+      <h2 class="display">O NXO fecha cada porta por onde o dinheiro escapa.</h2>
+      <p>Cada dor acima vira um processo automático, no mesmo sistema. Menos memória, menos planilha, menos risco.</p>
     </div>
-
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">TRÁFEGO & REDES SOCIAIS</h3>
-      <p class="service-desc">Anúncios no Meta e Google para trazer clientes que já estão procurando o que você oferece.</p>
-      <a class="service-card-cta" href="servicos.html">Ver detalhes</a>
-    </div>
-
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      </div>
-      <h3 class="service-title">GESTÃO & RELACIONAMENTO</h3>
-      <p class="service-desc">CRM e automações para não perder nenhum lead, do primeiro contato ao fechamento.</p>
-      <a class="service-card-cta" href="servicos.html">Ver detalhes</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROCESSO -->
-<section class="process" id="processo">
-  <p class="section-label reveal">Do briefing à entrega</p>
-  <h2 class="process-head reveal">
-    Simples.<br>Direto.<br>Sem enrolação.
-  </h2>
-  <div class="process-steps">
-
-    <div class="process-step reveal">
-      <div class="step-num">01</div>
-      <h3 class="step-title">DIAGNÓSTICO</h3>
-      <p class="step-desc">Conversamos sobre seu negócio, seus clientes e o que está faltando na sua presença digital hoje.</p>
-    </div>
-
-    <div class="process-step reveal reveal-delay-1">
-      <div class="step-num">02</div>
-      <h3 class="step-title">PROPOSTA</h3>
-      <p class="step-desc">Você recebe um plano personalizado com escopo, cronograma e investimento claros.</p>
-    </div>
-
-    <div class="process-step reveal reveal-delay-2">
-      <div class="step-num">03</div>
-      <h3 class="step-title">PRODUÇÃO</h3>
-      <p class="step-desc">Nossa equipe cria tudo (identidade, conteúdo, anúncios) com você acompanhando cada etapa.</p>
-    </div>
-
-    <div class="process-step reveal reveal-delay-3">
-      <div class="step-num">04</div>
-      <h3 class="step-title">ENTREGA & CRESCIMENTO</h3>
-      <p class="step-desc">Marca no ar, presença ativa e estratégia rodando para atrair e converter clientes todo mês.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- PORTFÓLIO (resumo) -->
-<section class="portfolio" id="portfolio-preview">
-  <p class="section-label reveal">Nosso trabalho</p>
-  <h2 class="services-head reveal">Método aplicado.<br><em style="font-family:var(--f-italic);font-style:italic;font-size:.72em;color:var(--green2);">Cases em construção.</em></h2>
-  <p class="reveal" style="color:rgba(245,240,232,.5);font-size:15px;max-width:52ch;line-height:1.65;margin-bottom:48px;">A NXO está no começo, e preferimos ser honestos do que inventar números. Abaixo, nosso método em ação e a oportunidade de ser nosso primeiro case real.</p>
-
-  <div class="case-grid">
-
-    <!-- Case real: a própria NXO -->
-    <div class="case-card reveal">
-      <div class="case-cover" style="background:linear-gradient(135deg,#0b120a 0%,#1e3328 100%);">
-        <span style="font-size:28px;letter-spacing:6px;font-family:var(--f-display);border:none;color:var(--cream);opacity:.9;">NXO</span>
-        <div style="position:absolute;bottom:14px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--orange);text-transform:uppercase;background:rgba(0,0,0,.4);padding:4px 10px;border-radius:20px;">Case real</div>
-      </div>
-      <div class="case-body">
-        <p class="case-tag" style="color:var(--orange);">Case Real: Identidade Visual</p>
-        <h3 class="case-title">NXO&nbsp;Agência</h3>
-        <p class="case-desc">Naming, identidade visual, site completo e posicionamento de comunicação criados do zero. A NXO existe como prova do que sabemos fazer.</p>
-        <div class="case-stats">
-          <div class="case-stat"><div class="num">100%</div><div class="label">Do zero</div></div>
-          <div class="case-stat"><div class="num">Real</div><div class="label">Case</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Case real: Dr. Wenberger -->
-    <div class="case-card reveal reveal-delay-1">
-      <a href="https://drwenberger.com.br" target="_blank" rel="noopener" class="case-cover wenberger-cover" style="aspect-ratio:auto;padding:0;overflow:hidden;position:relative;display:block;text-decoration:none;">
-        <img src="assets/wenberger-lp.jpg" alt="Landing page do Dr. Wenberger, clínica médica em Manaus" width="1000" height="417" loading="lazy" style="width:100%;height:auto;display:block;">
-        <div style="position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;color:#fff;background:rgba(11,18,10,.62);padding:5px 11px;border-radius:20px;">Ver site ↗</div>
-        <div style="position:absolute;bottom:12px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--orange);text-transform:uppercase;background:rgba(11,18,10,.72);padding:4px 10px;border-radius:20px;">Case real</div>
-      </a>
-      <style>.wenberger-cover::before{display:none!important;}.wenberger-cover{transition:opacity .2s;}.wenberger-cover:hover{opacity:.93;}</style>
-      <div class="case-body">
-        <p class="case-tag" style="color:var(--orange);">Case Real: Site</p>
-        <h3 class="case-title">Dr.&nbsp;Wenberger</h3>
-        <p class="case-desc">Landing page para clínica médica em Manaus, desenvolvida pela NXO. No ar e captando pacientes com agendamento direto pelo WhatsApp.</p>
-        <div class="case-stats">
-          <div class="case-stat"><div class="num">No ar</div><div class="label">Site</div></div>
-          <div class="case-stat"><div class="num">WhatsApp</div><div class="label">Agendamento</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card fundadores -->
-    <div class="case-card reveal reveal-delay-2" style="border:1px solid rgba(209,110,48,.3);background:rgba(209,110,48,.04);">
-      <div class="case-cover" style="background:linear-gradient(135deg,#2a1a0a 0%,#1a0f07 100%);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
-        <span style="border:1px solid rgba(209,110,48,.6);color:var(--orange);">Sua marca aqui</span>
-      </div>
-      <div class="case-body">
-        <p class="case-tag" style="color:var(--orange);">Vagas abertas: Clientes Fundadores</p>
-        <h3 class="case-title">Seja&nbsp;o primeiro</h3>
-        <p class="case-desc">Primeiros clientes da NXO ganham condições especiais e atenção total. Seu resultado entra nesta página quando vier, com nome real e número real.</p>
-        <div style="margin-top:20px;">
-          <a href="https://wa.me/5583994028974?text=Quero%20ser%20cliente%20fundador%20da%20NXO!" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;padding:12px 20px;border-radius:6px;font-weight:700;font-size:13px;transition:background .2s;">
-            Quero ser cliente fundador →
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <div style="margin-top:48px;">
-    <a class="btn-ghost reveal" href="portfolio.html">Ver nosso trabalho completo</a>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <p class="cta-eyebrow reveal">Próximo passo</p>
-    <h2 class="cta-head reveal">
-      DESCANSA.<br>
-      <span>A sua marca<br>está com a gente.</span>
-    </h2>
-    <p class="cta-sub reveal">
-      Diagnóstico gratuito. Sem compromisso.<br>
-      Só uma conversa honesta sobre o que sua marca precisa agora.
-    </p>
-    <div class="cta-actions reveal">
-      <a class="btn-big" href="https://wa.me/5583994028974" target="_blank" rel="noopener">
-        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M21.6 18.35c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1 1.24-.18.21-.37.24-.68.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.88-1.77-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.53-.71-.54-.18-.01-.4-.01-.61-.01-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.08 1.3 3.29c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.88-.77 2.14-1.51.26-.74.26-1.38.18-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
-        Quero meu diagnóstico
-      </a>
-      <span class="cta-note">Resposta em até 24h</span>
+    <div class="grid">
+      <div class="scard rv"><div class="n">01</div><div><h3>Prazo que se anota sozinho</h3><p>Capta as publicações do DJEN das suas OABs, calcula o prazo e avisa antes de vencer.</p><span class="win">Nunca mais uma preclusão por esquecimento</span></div></div>
+      <div class="scard rv"><div class="n">02</div><div><h3>"Meu dia" para toda a equipe</h3><p>Cada pessoa vê o que é dela: prazos, audiências, tarefas e follow-ups. O sócio enxerga tudo.</p><span class="win">Fim do retrabalho e das tarefas que caem</span></div></div>
+      <div class="scard rv"><div class="n">03</div><div><h3>CRM que vira consulta em contrato</h3><p>Toda oportunidade entra num funil com follow-up. O sistema lembra de retornar e mede a conversão.</p><span class="win">Mais consultas viram clientes pagantes</span></div></div>
+      <div class="scard rv"><div class="n">04</div><div><h3>WhatsApp de atendimento profissional</h3><p>Número da empresa, vários atendentes, histórico, etiquetas e vínculo com o funil.</p><span class="win">Atendimento com cara de escritório sério</span></div></div>
+      <div class="scard rv"><div class="n">05</div><div><h3>Financeiro que cobra o que é seu</h3><p>Honorários, contas a receber, alerta de atraso e fluxo de caixa com DRE.</p><span class="win">Menos inadimplência, mais previsibilidade</span></div></div>
+      <div class="scard rv"><div class="n">06</div><div><h3>Documentos no Google Drive</h3><p>Vincule a pasta de cada cliente e acesse os documentos direto do processo.</p><span class="win">Tudo do cliente a um clique</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer" id="footer-include"></footer>
+<section id="recursos" class="features">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Tudo num lugar</div><h2 class="display">Não são cinco ferramentas soltas. É uma operação inteira.</h2><p>Jurídico, vendas, atendimento e financeiro no mesmo sistema — os dados circulam entre eles, sem digitar duas vezes.</p></div>
+    <div class="fgrid">
+      <div class="fcard rv"><div class="ic">§</div><h3>Publicações & Prazos</h3><p>Captação do DJEN, cálculo de prazos, alertas e agenda de audiências.</p></div>
+      <div class="fcard rv"><div class="ic">⚖</div><h3>Processos</h3><p>Ficha completa do processo com partes, fases, andamentos e documentos.</p></div>
+      <div class="fcard rv"><div class="ic">◎</div><h3>NXO CRM</h3><p>Funil de vendas, captura de leads, contatos e insights de conversão.</p></div>
+      <div class="fcard rv"><div class="ic">✉</div><h3>WhatsApp Atendimento</h3><p>Central multi-atendente com histórico, etiquetas e respostas rápidas.</p></div>
+      <div class="fcard rv"><div class="ic">$</div><h3>Financeiro</h3><p>Lançamentos, contas a receber, fluxo de caixa e DRE simplificado.</p></div>
+      <div class="fcard rv"><div class="ic">⚑</div><h3>Acordos, Timesheet e Cálculos</h3><p>Negociação de acordos, controle de horas e cálculos judiciais.</p></div>
+    </div>
+  </div>
+</section>
 
-<script>
-window.__NXO_LOGO_B64__ = "data:image/png;base64,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";
+<section class="steps">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Simples de começar</div><h2 class="display">No ar em minutos, sem projeto de meses.</h2></div>
+    <div class="grid">
+      <div class="step rv"><div class="num">1</div><h3>Cadastre sua OAB</h3><p>Você informa o número e a UF. O sistema já começa a receber as publicações.</p></div>
+      <div class="step rv"><div class="num">2</div><h3>A equipe entra</h3><p>Convide os usuários, defina papéis e departamentos. Cada um vê o que importa.</p></div>
+      <div class="step rv"><div class="num">3</div><h3>Deixe o sistema trabalhar</h3><p>Prazos captados, follow-ups lembrados, financeiro em dia. Você foca no jurídico.</p></div>
+    </div>
+  </div>
+</section>
 
-(function () {
-  'use strict';
+<section class="roi">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">O resultado</div><h2 class="display">Pare de perder. Comece a ganhar.</h2></div>
+    <div class="cols">
+      <div class="box lose rv">
+        <h3>Deixa de perder</h3>
+        <div class="li"><span class="mk">—</span><span><b>Prazos:</b> evita preclusão, revelia, indenização e a perda do cliente.</span></div>
+        <div class="li"><span class="mk">—</span><span><b>Clientes:</b> follow-up automático segura a consulta que ia esfriar.</span></div>
+        <div class="li"><span class="mk">—</span><span><b>Honorários:</b> cobrança e alerta de atraso param a receita que vazava.</span></div>
+        <div class="li"><span class="mk">—</span><span><b>Tempo:</b> menos administrativo, mais horas faturáveis.</span></div>
+      </div>
+      <div class="box win rv">
+        <h3>Passa a ganhar</h3>
+        <div class="li"><span class="mk">+</span><span><b>Conversão:</b> mais consultas viram contratos.</span></div>
+        <div class="li"><span class="mk">+</span><span><b>Produtividade:</b> a equipe rende mais sem contratar mais gente.</span></div>
+        <div class="li"><span class="mk">+</span><span><b>Decisão por dados:</b> métricas mostram o que traz cliente e o que dá lucro.</span></div>
+        <div class="li"><span class="mk">+</span><span><b>Imagem:</b> atendimento e organização de escritório grande.</span></div>
+      </div>
+    </div>
+    <div class="quote rv">Um único <span class="g">prazo salvo</span> paga o sistema por anos. O resto é lucro.</div>
+  </div>
+</section>
 
-  /* Logo no hero deco */
-  var heroDeco = document.getElementById('hero-deco-logo');
-  if (heroDeco && window.__NXO_LOGO_B64__) heroDeco.src = window.__NXO_LOGO_B64__;
+<section id="planos" class="plans">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Investimento</div><h2 class="display">Custa menos que perder um único cliente.</h2><p>Escolha pelo tamanho do escritório. Todos com a captação de prazos — o coração do sistema.</p></div>
+    <div class="grid">
+      <div class="plan rv">
+        <div class="nm">Essencial</div>
+        <div class="pr">R$ 149<small>/mês</small></div>
+        <div class="ds">Para o advogado solo ou dupla que não pode perder um prazo.</div>
+        <ul>
+          <li><span class="c">✓</span> 2 usuários · DJEN de 1 OAB</li>
+          <li><span class="c">✓</span> Prazos, audiências e cálculo automático</li>
+          <li><span class="c">✓</span> Processos, tarefas e funil básico</li>
+          <li><span class="c">✓</span> Financeiro</li>
+        </ul>
+        <a href="#" data-wa class="btn btn-out" style="justify-content:center;">Começar com o Essencial</a>
+      </div>
+      <div class="plan hi rv">
+        <div class="badge">Mais escolhido</div>
+        <div class="nm">Profissional</div>
+        <div class="pr">R$ 349<small>/mês</small></div>
+        <div class="ds">Para o escritório em crescimento que quer produtividade e dados.</div>
+        <ul>
+          <li><span class="c">✓</span> 8 usuários · DJEN de até 5 OABs</li>
+          <li><span class="c">✓</span> Tudo do Essencial</li>
+          <li><span class="c">✓</span> NXO CRM completo</li>
+          <li><span class="c">✓</span> WhatsApp de atendimento + Google Drive</li>
+          <li><span class="c">✓</span> Métricas e relatórios (PDF/Excel)</li>
+        </ul>
+        <a href="#" data-wa class="btn btn-orange" style="justify-content:center;">Quero o Profissional</a>
+      </div>
+      <div class="plan rv">
+        <div class="nm">Banca</div>
+        <div class="pr">R$ 699<small>/mês</small></div>
+        <div class="ds">Operação completa para bancas e escritórios médios, sem limites.</div>
+        <ul>
+          <li><span class="c">✓</span> Usuários e OABs ilimitados</li>
+          <li><span class="c">✓</span> Tudo do Profissional</li>
+          <li><span class="c">✓</span> Automações e Metas/OKRs</li>
+          <li><span class="c">✓</span> Onboarding e suporte prioritário</li>
+        </ul>
+        <a href="#" data-wa class="btn btn-out" style="justify-content:center;">Falar sobre o Banca</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  /* NAV scroll */
-  var nav = document.getElementById('nav');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-    if (window.scrollY > 40) nav.classList.add('scrolled');
-  }
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Dúvidas</div><h2 class="display">Perguntas que todo escritório faz.</h2></div>
+    <div class="qa"><button>O sistema realmente pega minhas publicações sozinho? <span class="pl">+</span></button><div class="ans"><p>Sim. Você cadastra sua OAB e o sistema consulta o Diário de Justiça Eletrônico Nacional (DJEN) todos os dias, capta as publicações e calcula os prazos, avisando antes de vencer.</p></div></div>
+    <div class="qa"><button>Preciso instalar alguma coisa? <span class="pl">+</span></button><div class="ans"><p>Não. É 100% na nuvem — acessa do navegador, de qualquer computador ou celular. Nada para instalar, e as novidades entram sozinhas.</p></div></div>
+    <div class="qa"><button>Meus dados ficam seguros? <span class="pl">+</span></button><div class="ans"><p>Sim. Cada escritório tem os dados isolados dos demais, com controle de acesso por usuário e por departamento. Só quem você autoriza vê cada informação.</p></div></div>
+    <div class="qa"><button>Tenho equipe. Dá para vários usuários? <span class="pl">+</span></button><div class="ans"><p>Dá. A partir do plano Profissional são até 8 usuários (e ilimitados no Banca), com papéis e departamentos — cada pessoa vê o que é do trabalho dela.</p></div></div>
+    <div class="qa"><button>E se eu quiser cancelar? <span class="pl">+</span></button><div class="ans"><p>Sem fidelidade. Você contrata mês a mês e cancela quando quiser. A ideia é você ficar porque o sistema se paga, não por contrato.</p></div></div>
+  </div>
+</section>
 
-  /* Mobile drawer */
-  var drawer = document.getElementById('drawer');
-  var burger = document.getElementById('burger');
-  var drawerClose = document.getElementById('drawerClose');
-  if (drawer && burger) {
-    burger.addEventListener('click', function () { drawer.classList.add('open'); });
-    if (drawerClose) drawerClose.addEventListener('click', function () { drawer.classList.remove('open'); });
-    drawer.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { drawer.classList.remove('open'); });
-    });
-  }
+<section class="final">
+  <div class="wrap">
+    <h2 class="display rv">Comece a parar de perder dinheiro <span class="g">hoje.</span></h2>
+    <p class="rv">Cadastre sua OAB e veja o sistema captar seus prazos já na primeira semana. Sem instalação, sem projeto de meses.</p>
+    <div class="cta-row rv">
+      <a href="#" data-wa class="btn btn-orange">Agendar demonstração no WhatsApp</a>
+      <a href="#planos" class="btn btn-ghost">Ver os planos</a>
+    </div>
+    <div class="guar rv">Sem fidelidade · Cancele quando quiser · Suporte de gente de verdade</div>
+  </div>
+</section>
 
-  /* Marca link ativo na nav conforme a página atual */
-  (function() {
-    var path = window.location.pathname;
-    var seg = path.replace(/\/$/, '').split('/').pop() || '';
-    var current = seg.replace(/\.html$/, '') || 'index';
-    document.querySelectorAll('.nav-links a, .drawer a').forEach(function (a) {
-      var href = (a.getAttribute('href') || '').split('#')[0].replace(/\.html$/, '');
-      if (href === current) a.classList.add('active');
-    });
-  })();
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><b style="color:#fff">N<span class="x">X</span>O</b><span style="color:#9fb0a3">Agência</span></a>
+    <div>Sistema de gestão para escritórios de advocacia · nxoagencia.com.br</div>
+    <div><a href="#" data-wa>WhatsApp (83) 9402-8974</a></div>
+  </div>
+</footer>
 
-  /* Reveal on scroll */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) {
-        en.target.classList.add('in');
-        io.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-
-  /* WhatsApp tracking */
-  document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      try { if (window.fbq) fbq('track', 'Lead', { content_name: 'clique-whatsapp' }); } catch (e) {}
-      try { if (window.gtag) gtag('event', 'whatsapp_click', { event_category: 'contato' }); } catch (e) {}
-      try { if (window.dataLayer) window.dataLayer.push({ event: 'whatsapp_click' }); } catch (e) {}
-    });
-  });
-
-  /* Filtro de portfólio */
-  var filterBtns = document.querySelectorAll('.case-filter button');
-  var caseCards = document.querySelectorAll('.case-card');
-  if (filterBtns.length && caseCards.length) {
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        filterBtns.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        var f = btn.dataset.filter;
-        caseCards.forEach(function (card) {
-          var show = f === 'all' || card.dataset.category === f;
-          card.style.display = show ? '' : 'none';
-        });
-      });
-    });
-  }
-
-  /* Formulário de contato, envia de verdade via Netlify Forms (AJAX) */
-  var form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('.btn-submit');
-      var success = document.getElementById('formSuccess');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-
-      try { if (window.fbq) fbq('track', 'Lead', { content_name: 'formulario-contato' }); } catch (err) {}
-      try { if (window.gtag) gtag('event', 'form_submit', { event_category: 'contato' }); } catch (err) {}
-
-      var nome = form.nome.value || '';
-      var servico = form.servico ? form.servico.value : '';
-      var mensagem = form.mensagem.value || '';
-      var texto = 'Olá! Meu nome é ' + nome +
-        (servico ? '. Tenho interesse em: ' + servico : '') +
-        (mensagem ? '. Mensagem: ' + mensagem : '');
-
-      function encode(data) {
-        return Object.keys(data).map(function (k) {
-          return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
-        }).join('&');
-      }
-
-      var formData = {
-        'form-name': 'contato',
-        nome: nome,
-        telefone: form.telefone.value || '',
-        email: form.email.value || '',
-        servico: servico,
-        mensagem: mensagem
-      };
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(formData)
-      })
-      .then(function () {
-        showSuccess();
-      })
-      .catch(function () {
-        // mesmo se a rede falhar, garantimos que o lead não se perde: leva pro WhatsApp
-        showSuccess();
-      });
-
-      function showSuccess() {
-        form.style.display = 'none';
-        if (success) success.classList.add('show');
-        var waLink = document.getElementById('waFallback');
-        if (waLink) waLink.href = 'https://wa.me/5583994028974?text=' + encodeURIComponent(texto);
-      }
-    });
-  }
-
-})();
-
-(function () {
-  'use strict';
-  var el = document.getElementById('footer-include');
-  if (!el) return;
-
-  el.innerHTML =
-    '<div class="footer-top">' +
-      '<div>' +
-        '<div class="footer-logo">' +
-          '<img src="' + (window.__NXO_LOGO_B64__ || '') + '" alt="NXO Agência" style="height:46px;width:auto;">' +
-        '</div>' +
-      '</div>' +
-      '<div class="footer-col">' +
-        '<h4>Navegação</h4>' +
-        '<ul class="footer-links">' +
-          '<li><a href="index.html">Início</a></li>' +
-          '<li><a href="servicos.html">Serviços</a></li>' +
-          '<li><a href="portfolio.html">Portfólio</a></li>' +
-          '<li><a href="contato.html">Contato</a></li>' +
-     '<li><a href="privacidade.html">Política de Privacidade</a></li>' +
-        '</ul>' +
-      '</div>' +
-      '<div class="footer-col">' +
-        '<h4>Contato</h4>' +
-        '<ul class="footer-links">' +
-          '<li><a href="mailto:nxoagmkt@gmail.com">nxoagmkt@gmail.com</a></li>' +
-          '<li><a href="https://wa.me/5583994028974" target="_blank" rel="noopener">(83) 99402-8974</a></li>' +
-        '</ul>' +
-      '</div>' +
-      '<div class="footer-col">' +
-        '<h4>Redes sociais</h4>' +
-        '<div class="footer-socials">' +
-          '<a href="https://www.instagram.com/nxoagencia" target="_blank" rel="noopener" data-social aria-label="Instagram">' +
-            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4Zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.8-11.1a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5Z"/></svg>' +
-          '</a>' +
-          '<a href="https://www.tiktok.com/@nxo.agncia" target="_blank" rel="noopener" data-social aria-label="TikTok">' +
-            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2 1.5 3.6 3.5 4v2.6c-1.3 0-2.6-.4-3.6-1.1v6.3a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.7a3 3 0 1 0 2.1 2.9V3h2.8Z"/></svg>' +
-          '</a>' +
-          '<a href="https://www.facebook.com/share/1ENPEMtaMt/" target="_blank" rel="noopener" data-social aria-label="Facebook">' +
-            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.6l.4-3h-3V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.2v3h2.6v8h2.7Z"/></svg>' +
-          '</a>' +
-          '<a href="https://www.linkedin.com/in/nxo-ag%C3%AAncia-996ba7411" target="_blank" rel="noopener" data-social aria-label="LinkedIn">' +
-            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.5H3.7V21h3.2V8.5ZM5.3 3.2a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.3 21v-6.8c0-3.6-1.9-5.3-4.5-5.3a3.9 3.9 0 0 0-3.5 1.9V8.5H9.1V21h3.2v-6.5c0-1.7.3-3.3 2.4-3.3s2.1 1.9 2.1 3.4V21h3.5Z"/></svg>' +
-          '</a>' +
-          '<a href="https://wa.me/5583994028974" target="_blank" rel="noopener" aria-label="WhatsApp">' +
-            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5 0-.8.2-1 .2-.2.3-.3.5-.5.1-.2.2-.3.2-.5 0-.2-.6-1.5-.9-2.1-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-.9 2.4.1 1.4 1 2.7 1.2 2.9.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.2-.1-.4-.2-.7-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.5C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.8 0-3.5-.5-4.9-1.4l-.4-.2-3 .8.8-2.9-.2-.4c-1-1.5-1.5-3.2-1.5-4.9 0-4.5 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.8 8-8.4 8z"/></svg>' +
-          '</a>' +
-        '</div>' +
-      '</div>' +
-    '</div>' +
-    '<div class="footer-copy">' +
-      '<span>© 2026 NXO Agência. Todos os direitos reservados.</span>' +
-      '<span><a href="mailto:nxoagmkt@gmail.com">nxoagmkt@gmail.com</a> · <a href="https://wa.me/5583994028974" target="_blank" rel="noopener">(83) 99402-8974</a></span>' +
-    '</div>';
-})();
-</script>
-
-<!-- BOTÃO FLUTUANTE WHATSAPP -->
-<a href="https://wa.me/5583994028974?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais!" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5 0-.8.2-1 .2-.2.3-.3.5-.5.1-.2.2-.3.2-.5 0-.2-.6-1.5-.9-2.1-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-.9 2.4.1 1.4 1 2.7 1.2 2.9.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.2-.1-.4-.2-.7-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.5C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.8 0-3.5-.5-4.9-1.4l-.4-.2-3 .8.8-2.9-.2-.4c-1-1.5-1.5-3.2-1.5-4.9 0-4.5 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.8 8-8.4 8z"/></svg>
+<a class="wafloat" href="#" data-wa aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.24.68-1.42 1.32-1.95 1.36-.5.05-.99.24-3.35-.7-2.84-1.12-4.64-4.03-4.78-4.22-.14-.19-1.14-1.52-1.14-2.9 0-1.38.72-2.06.98-2.34.24-.26.53-.33.71-.33.18 0 .35 0 .5.01.16.01.38-.06.59.45.24.55.79 1.93.86 2.07.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.69-.81.87-1.09.18-.28.36-.23.61-.14.24.09 1.55.73 1.82.86.28.14.46.21.53.33.07.12.07.68-.17 1.36"/></svg>
 </a>
-<!-- BANNER DE COOKIES -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:#161f14;border-top:1px solid rgba(209,110,48,.3);padding:20px clamp(20px,5vw,48px);box-shadow:0 -8px 32px rgba(0,0,0,.4);">
-  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;">
-    <p style="font-size:14px;color:rgba(252,252,230,.7);line-height:1.6;max-width:62ch;margin:0;">
-      Usamos cookies para melhorar sua experiência e medir nossas campanhas. Você pode aceitar ou recusar os não essenciais, veja detalhes na
-      <a href="privacidade.html" style="color:#d16e30;text-decoration:underline;">Política de Privacidade</a>.
-    </p>
-    <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button id="cookieReject" style="background:none;border:1px solid rgba(252,252,230,.25);color:rgba(252,252,230,.7);padding:11px 22px;border-radius:6px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;">Recusar</button>
-      <button id="cookieAccept" style="background:#d16e30;border:none;color:#fff;padding:11px 26px;border-radius:6px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;">Aceitar</button>
-    </div>
-  </div>
-</div>
 
 <script>
-(function(){
-  var KEY='nxo_cookie_consent';
-  var banner=document.getElementById('cookieBanner');
-  var saved=null;
-  try{ saved=localStorage.getItem(KEY); }catch(e){}
-
-  function loadPixel(){
-    if(window.__nxoPixelLoaded) return;
-    window.__nxoPixelLoaded=true;
-    window.__nxoLoadPixel=function(){if(window.__nxoPixelLoaded)return;window.__nxoPixelLoaded=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','SEU_PIXEL_ID');fbq('track','PageView');};if(localStorage.getItem('nxo_cookie_consent')==='accepted'){window.__nxoLoadPixel();}
-  }
-
-  function decide(v){
-    try{ localStorage.setItem(KEY,v); }catch(e){}
-    if(banner) banner.style.display='none';
-    if(v==='accept') loadPixel();
-  }
-
-  if(saved==='accept'){ loadPixel(); }
-  else if(saved!=='reject' && banner){ banner.style.display='block'; }
-
-  var a=document.getElementById('cookieAccept');
-  var r=document.getElementById('cookieReject');
-  if(a) a.addEventListener('click',function(){ decide('accept'); });
-  if(r) r.addEventListener('click',function(){ decide('reject'); });
-})();
+  var WA_NUM='5583994028974';
+  var WA_MSG=encodeURIComponent('Olá! Vim pela página da NXO e quero conhecer/agendar uma demonstração do sistema.');
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href='https://wa.me/'+WA_NUM+'?text='+WA_MSG;a.target='_blank';a.rel='noopener';});
+  var hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10);});
+  document.querySelectorAll('.qa button').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 </script>
-<!-- Banner de cookies (LGPD), carrega Meta Pixel só após aceite -->
-<div id="nxo-cookie-banner" role="dialog" aria-label="Aviso de cookies" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:820px;margin:0 auto;background:#0f1a12;border:1px solid rgba(209,110,48,.35);border-radius:14px;padding:20px 22px;box-shadow:0 14px 40px rgba(0,0,0,.5);flex-direction:column;gap:14px;font-family:'Josefin Sans',system-ui,sans-serif;">
-  <p style="margin:0;color:#fcfce6;font-size:14px;line-height:1.6;">Usamos cookies para melhorar sua experiência e medir a performance do site. Você pode aceitar ou recusar cookies de marketing. Saiba mais na nossa <a href="privacidade.html" style="color:#d16e30;text-decoration:underline;">Política de Privacidade</a>.</p>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;">
-    <button id="nxo-cookie-accept" style="background:#d16e30;color:#fff;border:none;padding:11px 22px;border-radius:6px;font-weight:700;font-size:13px;letter-spacing:.3px;cursor:pointer;font-family:inherit;">Aceitar</button>
-    <button id="nxo-cookie-reject" style="background:transparent;color:#fcfce6;border:1px solid rgba(252,252,230,.3);padding:11px 22px;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;">Recusar</button>
-  </div>
-</div>
-<script>
-(function(){
-  var b=document.getElementById('nxo-cookie-banner');
-  if(!b)return;
-  var c=null;try{c=localStorage.getItem('nxo_cookie_consent');}catch(e){}
-  if(!c){b.style.display='flex';}
-  function set(v){try{localStorage.setItem('nxo_cookie_consent',v);}catch(e){}b.style.display='none';if(v==='accepted'&&window.__nxoLoadPixel){window.__nxoLoadPixel();}}
-  var a=document.getElementById('nxo-cookie-accept'),r=document.getElementById('nxo-cookie-reject');
-  if(a)a.onclick=function(){set('accepted');};
-  if(r)r.onclick=function(){set('rejected');};
-})();
-</script>
-
 </body>
 </html>
