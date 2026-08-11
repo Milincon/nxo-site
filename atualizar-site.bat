@@ -49,6 +49,19 @@ if errorlevel 1 (
 )
 
 echo.
+echo.
+echo === Sincronizando com o GitHub (evita rejeicao) ===
+git fetch origin
+git merge origin/main --no-edit
+if errorlevel 1 (
+  echo.
+  echo ERRO: conflito ao mesclar com o GitHub. Nada foi enviado.
+  echo Rode "git status" para ver, ou peca ajuda para resolver.
+  git merge --abort
+  pause
+  exit /b 1
+)
+
 echo === Enviando para o GitHub (main) ===
 git push origin HEAD:main
 if errorlevel 1 (
