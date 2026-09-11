@@ -974,6 +974,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* A11y (invisível no uso normal): foco de teclado + respeito a reduced-motion */
 :focus-visible{outline:2px solid var(--orange, var(--gold, var(--wine, #e07020)));outline-offset:2px}
+/* Ajustes HIG (apple-design): contraste AA + alvos de toque, identidade preservada */
+.service-items li{color:rgba(245,240,232,.6);}
+.service-price .from{color:rgba(245,240,232,.6);}
+.case-stat .label{color:rgba(245,240,232,.6);}
+.contact-info-item strong{color:rgba(245,240,232,.6);}
+.field input::placeholder,.field textarea::placeholder{color:rgba(245,240,232,.48);}
+@media (max-width:768px){ .case-filter button,.btn-submit,.nav-burger,.drawer-close,.nav-cta{min-height:44px;} }
+@media (prefers-reduced-transparency: reduce){ .nav.scrolled{background:var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none;} }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1 !important;transform:none !important;transition:none !important}
   *{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}
