@@ -202,6 +202,13 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none;} .reveal{opacity:1;transform:none;} }
 /* A11y (invisível no uso normal): foco de teclado + respeito a reduced-motion */
 :focus-visible{outline:2px solid var(--orange, var(--gold, var(--wine, #e07020)));outline-offset:2px}
+/* Ajustes HIG (apple-design): contraste AA + alvos de toque, identidade preservada */
+.footer-copy{color:rgba(252,252,230,.58);}
+.footer-copy a{color:rgba(252,252,230,.72);}
+.footer-col h4{color:rgba(252,252,230,.6);}
+.ncard:not(.hl) .row small{color:#4f5a4b;}
+@media (max-width:768px){ .nav-cta,.btn-primary,.plan .cta,.nav-burger,.drawer-close{min-height:44px;} }
+@media (prefers-reduced-transparency: reduce){ .nav.scrolled{background:var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none;} }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1 !important;transform:none !important;transition:none !important}
   *{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}
