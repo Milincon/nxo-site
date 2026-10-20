@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 REM ==========================================================
-REM  NXO Agencia - subir alteracoes para o GitHub (deploy Netlify)
+REM  Procedia - subir alteracoes para o GitHub (deploy Netlify)
 REM  Repo: https://github.com/Milincon/nxo-site  (branch main)
 REM  Na 1a vez conecta esta pasta ao GitHub; depois so commita+push.
 REM ==========================================================
@@ -41,7 +41,7 @@ git status --short
 echo.
 git add -A
 
-set "MSG=feat: remove travessoes, emojis de IA e tags de dobra; adiciona case demonstrativo LP advocacia (Dr. Lucas)"
+set "MSG=feat: site Procedia, nova identidade, planos, cases e sistemas"
 git commit -m "%MSG%"
 if errorlevel 1 (
   echo.

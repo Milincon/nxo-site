@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>NXO | O escritório que não perde prazo e para de perder dinheiro</title>
+<meta name="description" content="Sistema de gestão para escritórios de advocacia: captação automática do DJEN, prazos, processos, CRM, WhatsApp e financeiro num lugar só.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Junge&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fcfce6; --paper:#fffef5; --orange:#d16e30; --orange-d:#b85c25;
+    --green:#3a664b; --green-d:#2b4c38; --green-dk:#16281d; --black:#111310;
+    --ink:#1e241d; --muted:#5f6a5c; --line:#e6e2c9;
+    --sans:'Josefin Sans',system-ui,sans-serif; --serif:'Junge',Georgia,serif;
+    --wrap:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-weight:700;line-height:1.12;color:var(--green-dk);letter-spacing:.005em;}
+  .display{font-family:var(--serif);font-weight:400;letter-spacing:0;}
+  .eyebrow{font-size:0.8rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:.02em;padding:14px 26px;border-radius:6px;cursor:pointer;border:1.5px solid transparent;transition:.18s;white-space:nowrap;}
+  .btn-orange{background:var(--orange);color:#fff;} .btn-orange:hover{background:var(--orange-d);transform:translateY(-1px);}
+  .btn-green{background:var(--green);color:#fff;} .btn-green:hover{background:var(--green-d);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;border-color:rgba(252,252,230,.3);color:var(--cream);} .btn-ghost:hover{background:rgba(252,252,230,.08);}
+  .btn-out{background:transparent;border-color:var(--green);color:var(--green);} .btn-out:hover{background:var(--green);color:#fff;}
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  .target{width:26px;height:26px;border-radius:50%;border:2px solid var(--orange);position:relative;flex-shrink:0;}
+  .target::after{content:"";position:absolute;inset:5px;border-radius:50%;border:2px solid var(--green);}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(252,252,230,.82);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.25s;}
+  header.scrolled{background:rgba(252,252,230,.96);border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:baseline;gap:2px;}
+  .brand b{font-family:var(--sans);font-weight:700;font-size:1.5rem;color:var(--green-dk);letter-spacing:.12em;}
+  .brand b .x{color:var(--orange);}
+  .brand span{font-size:0.7rem;color:var(--muted);letter-spacing:.24em;text-transform:uppercase;margin-left:4px;}
+  .nav-links{display:flex;gap:28px;font-size:0.94rem;color:var(--muted);font-weight:500;letter-spacing:.02em;}
+  .nav-links a:hover{color:var(--green-dk);}
+  .nav-cta{display:flex;gap:10px;align-items:center;}
+  .menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--green-dk);}
+  @media(max-width:880px){.nav-links{display:none;} .nav .btn-out{display:none;} }
+
+  .hero{background:var(--green-dk);color:var(--cream);position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;right:-140px;top:-120px;width:460px;height:460px;border-radius:50%;border:60px solid rgba(209,110,48,.14);pointer-events:none;}
+  .hero::after{content:"";position:absolute;left:-90px;bottom:-90px;width:240px;height:240px;border-radius:50%;border:34px solid rgba(58,102,75,.5);pointer-events:none;}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding:78px 24px 92px;}
+  .hero .eyebrow{color:var(--orange);}
+  .hero h1{color:#fff;font-size:3.4rem;margin:16px 0 0;}
+  .hero h1 .g{color:var(--orange);}
+  .hero p.sub{font-size:1.18rem;color:#dfe6da;margin-top:20px;max-width:34ch;font-weight:300;}
+  .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+  .hero .trust{margin-top:26px;font-size:0.88rem;color:#b9c6bb;display:flex;gap:9px;align-items:center;}
+  .hero .trust b{color:#fff;font-weight:600;}
+  @media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:34px;padding:52px 24px 62px;} .hero h1{font-size:2.5rem;} .hero p.sub{max-width:none;}}
+
+  .mock{background:var(--paper);border-radius:14px;box-shadow:0 30px 60px -22px rgba(0,0,0,.5);overflow:hidden;color:var(--ink);}
+  .mock .bar{height:38px;background:var(--cream);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 14px;}
+  .mock .bar i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .mock .bar i:nth-child(1){background:var(--orange);} .mock .bar i:nth-child(2){background:var(--green);} .mock .bar i:nth-child(3){background:#cfc9ab;}
+  .mock .bd{padding:16px;}
+  .mock .mh{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600;}
+  .mock .row{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:9px;margin-top:9px;}
+  .mock .tag{font-size:0.62rem;font-weight:700;padding:3px 9px;border-radius:999px;}
+  .mock .tag.red{background:rgba(209,110,48,.14);color:var(--orange-d);}
+  .mock .tag.amber{background:rgba(209,110,48,.1);color:var(--orange-d);}
+  .mock .tag.green{background:rgba(58,102,75,.12);color:var(--green);}
+  .mock .rt{flex:1;font-size:0.82rem;font-weight:500;}
+  .mock .rd{font-size:0.72rem;color:var(--muted);}
+  .mock .kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:12px;}
+  .mock .kpi{background:var(--cream);border-radius:9px;padding:10px;}
+  .mock .kpi .v{font-family:var(--serif);font-size:1.25rem;color:var(--green-dk);}
+  .mock .kpi .l{font-size:0.64rem;color:var(--muted);}
+
+  .strip{background:var(--black);color:#cfc9ab;}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:center;padding:16px 24px;font-size:0.88rem;font-weight:500;letter-spacing:.02em;}
+  .strip span{display:inline-flex;align-items:center;gap:8px;} .strip .dot{color:var(--orange);}
+
+  section{padding:88px 0;}
+  .sec-head{max-width:660px;margin:0 auto 46px;text-align:center;}
+  .sec-head h2{font-size:2.4rem;margin-top:12px;}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin-top:14px;font-weight:300;}
+
+  .problem{background:var(--paper);}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .pcard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:24px;position:relative;overflow:hidden;}
+  .pcard::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:var(--orange);}
+  .pcard h3{font-size:1.15rem;font-weight:600;color:var(--green-dk);}
+  .pcard p{color:var(--muted);font-size:0.96rem;margin-top:8px;font-weight:300;}
+  @media(max-width:880px){.pgrid{grid-template-columns:1fr;}}
+
+  .sol .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .scard{display:flex;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
+  .scard .n{font-family:var(--serif);font-size:1.6rem;color:var(--orange);flex-shrink:0;width:36px;}
+  .scard h3{font-size:1.15rem;font-weight:600;color:var(--green-dk);}
+  .scard p{color:var(--muted);font-size:0.96rem;margin-top:6px;font-weight:300;}
+  .scard .win{display:inline-block;margin-top:10px;font-size:0.8rem;font-weight:600;color:#fff;background:var(--green);border-radius:5px;padding:4px 11px;}
+  @media(max-width:880px){.sol .grid{grid-template-columns:1fr;}}
+
+  .features{background:var(--paper);}
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .fcard{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--cream);}
+  .fcard .ic{width:46px;height:46px;border-radius:12px;background:var(--green-dk);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1.3rem;}
+  .fcard h3{font-size:1.1rem;font-weight:600;color:var(--green-dk);}
+  .fcard p{color:var(--muted);font-size:0.92rem;margin-top:6px;font-weight:300;}
+  @media(max-width:880px){.fgrid{grid-template-columns:1fr;}}
+
+  .steps .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .step{text-align:center;}
+  .step .num{width:54px;height:54px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--serif);font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .step h3{font-size:1.15rem;font-weight:600;}
+  .step p{color:var(--muted);font-size:0.96rem;margin-top:8px;font-weight:300;}
+  @media(max-width:880px){.steps .grid{grid-template-columns:1fr;gap:30px;}}
+
+  .roi{background:var(--green);color:#fff;}
+  .roi .sec-head h2,.roi .eyebrow{color:#fff;} .roi .eyebrow{color:#f2c39a;}
+  .roi .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .roi .box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:26px;}
+  .roi .box h3{font-family:var(--serif);color:#fff;font-size:1.4rem;margin-bottom:14px;font-weight:400;}
+  .roi .box.lose h3{color:#f0b48c;} .roi .box.win h3{color:#bfe0cb;}
+  .roi .li{display:flex;gap:10px;color:#e9efe6;font-size:0.98rem;margin-bottom:10px;font-weight:300;}
+  .roi .li .mk{font-weight:700;} .lose .mk{color:#f0b48c;} .win .mk{color:#bfe0cb;}
+  .roi .quote{margin-top:26px;text-align:center;font-family:var(--serif);font-size:1.6rem;line-height:1.35;color:#fff;}
+  .roi .quote .g{color:var(--orange);}
+  @media(max-width:880px){.roi .cols{grid-template-columns:1fr;} .roi .quote{font-size:1.25rem;}}
+
+  .plans .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;}
+  .plan.hi{border:2px solid var(--orange);box-shadow:0 20px 40px -26px rgba(209,110,48,.5);}
+  .plan .badge{align-self:flex-start;font-size:0.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:5px;padding:4px 10px;margin-bottom:12px;}
+  .plan .nm{font-weight:600;color:var(--green-dk);font-size:1.2rem;letter-spacing:.03em;}
+  .plan .pr{font-family:var(--serif);font-size:2.2rem;color:var(--ink);margin:8px 0 2px;}
+  .plan .pr small{font-size:0.95rem;color:var(--muted);font-family:var(--sans);}
+  .plan .ds{font-size:0.9rem;color:var(--muted);margin-bottom:16px;min-height:46px;font-weight:300;}
+  .plan ul{list-style:none;border-top:1px solid var(--line);padding-top:14px;margin-bottom:18px;flex:1;}
+  .plan li{font-size:0.92rem;display:flex;gap:9px;margin-bottom:9px;color:var(--ink);font-weight:300;}
+  .plan li .c{color:var(--green);font-weight:700;}
+  @media(max-width:880px){.plans .grid{grid-template-columns:1fr;}}
+
+  .faq{background:var(--paper);}
+  .faq .wrap{max-width:760px;}
+  .qa{border-bottom:1px solid var(--line);}
+  .qa button{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:var(--sans);font-weight:600;font-size:1.08rem;color:var(--green-dk);cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:0.98rem;font-weight:300;}
+  .qa.open .ans{max-height:260px;} .qa .ans p{padding-bottom:20px;}
+  .qa .pl{color:var(--orange);font-size:1.5rem;transition:.2s;flex-shrink:0;line-height:1;}
+  .qa.open .pl{transform:rotate(45deg);}
+
+  .final{background:var(--black);color:var(--cream);text-align:center;position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;left:50%;top:-160px;transform:translateX(-50%);width:420px;height:420px;border-radius:50%;border:50px solid rgba(209,110,48,.12);pointer-events:none;}
+  .final .wrap{position:relative;}
+  .final h2{color:#fff;font-size:2.6rem;} .final h2 .g{color:var(--orange);}
+  .final p{color:#cfc9ab;font-size:1.12rem;margin:16px auto 0;max-width:60ch;font-weight:300;}
+  .final .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .final .guar{margin-top:22px;font-size:0.92rem;color:#a39d84;}
+
+  footer{background:var(--green-dk);color:#b9c6bb;padding:40px 0;font-size:0.92rem;}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;}
+  footer a:hover{color:#fff;}
+
+  .wafloat{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--orange);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:.18s;}
+  .wafloat:hover{transform:scale(1.06);background:var(--orange-d);}
+/* A11y (invisível no uso normal): foco de teclado + reduced-motion */
+:focus-visible{outline:2px solid var(--orange,#d16e30);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><b>N<span class="x">X</span>O</b><span>Agência</span></a>
+    <nav class="nav-links">
+      <a href="#problema">O problema</a>
+      <a href="#solucao">A solução</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#planos" class="btn btn-out">Ver planos</a>
+      <a href="#" data-wa class="btn btn-orange">Agendar demonstração</a>
+    </div>
+    <button class="menu-btn" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Gestão para escritórios de advocacia</div>
+      <h1 class="display">O escritório que <span class="g">não perde prazo</span>, e para de perder dinheiro.</h1>
+      <p class="sub">Prazos, processos, clientes, atendimento e financeiro num lugar só. O sistema capta suas publicações do DJEN, calcula os prazos e avisa antes de vencer.</p>
+      <div class="cta-row">
+        <a href="#" data-wa class="btn btn-orange">Falar no WhatsApp agora</a>
+        <a href="#planos" class="btn btn-ghost">Ver planos e preços</a>
+      </div>
+      <div class="trust"><span class="dot" style="color:var(--orange)">●</span> Feito para a advocacia brasileira · <b>DJEN, prazos e cálculos judiciais</b></div>
+    </div>
+    <div class="rv">
+      <div class="mock">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="bd">
+          <div class="mh">Meu dia · prazos e audiências</div>
+          <div class="row"><span class="tag red">Vence hoje</span><span class="rt">Contestação, Proc. 0000432-44</span><span class="rd">TRT-21</span></div>
+          <div class="row"><span class="tag amber">Amanhã</span><span class="rt">Audiência de conciliação</span><span class="rd">14:00</span></div>
+          <div class="row"><span class="tag green">Follow-up</span><span class="rt">Retornar consulta, L. Alves</span><span class="rd">CRM</span></div>
+          <div class="kpis">
+            <div class="kpi"><div class="v">0</div><div class="l">Prazos perdidos</div></div>
+            <div class="kpi"><div class="v">18</div><div class="l">No prazo</div></div>
+            <div class="kpi"><div class="v">R$ 24k</div><div class="l">A receber</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span><span class="dot">●</span> Captação automática do DJEN</span>
+    <span><span class="dot">●</span> CRM + WhatsApp de atendimento</span>
+    <span><span class="dot">●</span> Financeiro e fluxo de caixa</span>
+    <span><span class="dot">●</span> Processos, prazos e acordos</span>
+  </div>
+</div>
+
+<section id="problema" class="problem">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">O problema</div>
+      <h2 class="display">Todo dia, o escritório perde dinheiro sem perceber.</h2>
+      <p>Não é falta de trabalho. É trabalho se perdendo no meio do caminho, prazos, clientes e honorários que escapam do papel e da planilha.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard rv"><h3>Um prazo esquecido</h3><p>A intimação some no diário, o prazo não é anotado, vem a preclusão. O dano é do cliente, mas a responsabilidade civil é do advogado.</p></div>
+      <div class="pcard rv"><h3>Conferir o diário na mão</h3><p>Leitura manual das publicações, em várias OABs, dependendo da memória de alguém. Um dia sem conferir já é risco.</p></div>
+      <div class="pcard rv"><h3>A consulta que some</h3><p>O cliente potencial entra em contato, ninguém retorna na hora certa, ele esfria e fecha com outro. Honorário na mesa.</p></div>
+      <div class="pcard rv"><h3>Financeiro no escuro</h3><p>Honorários que não são cobrados, parcelas atrasadas sem alerta, e a dúvida no fim do mês: quanto entrou, quanto falta.</p></div>
+      <div class="pcard rv"><h3>WhatsApp no celular pessoal</h3><p>Conversas soltas, sem histórico, sem saber quem respondeu, e o que se perde quando alguém sai da equipe.</p></div>
+      <div class="pcard rv"><h3>Equipe sem visão do dia</h3><p>Cada um com sua planilha, tarefas caindo, retrabalho, e o sócio sem enxergar a operação inteira.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="solucao" class="sol">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">A virada</div>
+      <h2 class="display">O NXO fecha cada porta por onde o dinheiro escapa.</h2>
+      <p>Cada dor acima vira um processo automático, no mesmo sistema. Menos memória, menos planilha, menos risco.</p>
+    </div>
+    <div class="grid">
+      <div class="scard rv"><div class="n">01</div><div><h3>Prazo que se anota sozinho</h3><p>Capta as publicações do DJEN das suas OABs, calcula o prazo e avisa antes de vencer.</p><span class="win">Nunca mais uma preclusão por esquecimento</span></div></div>
+      <div class="scard rv"><div class="n">02</div><div><h3>"Meu dia" para toda a equipe</h3><p>Cada pessoa vê o que é dela: prazos, audiências, tarefas e follow-ups. O sócio enxerga tudo.</p><span class="win">Fim do retrabalho e das tarefas que caem</span></div></div>
+      <div class="scard rv"><div class="n">03</div><div><h3>CRM que vira consulta em contrato</h3><p>Toda oportunidade entra num funil com follow-up. O sistema lembra de retornar e mede a conversão.</p><span class="win">Mais consultas viram clientes pagantes</span></div></div>
+      <div class="scard rv"><div class="n">04</div><div><h3>WhatsApp de atendimento profissional</h3><p>Número da empresa, vários atendentes, histórico, etiquetas e vínculo com o funil.</p><span class="win">Atendimento com cara de escritório sério</span></div></div>
+      <div class="scard rv"><div class="n">05</div><div><h3>Financeiro que cobra o que é seu</h3><p>Honorários, contas a receber, alerta de atraso e fluxo de caixa com DRE.</p><span class="win">Menos inadimplência, mais previsibilidade</span></div></div>
+      <div class="scard rv"><div class="n">06</div><div><h3>Documentos no Google Drive</h3><p>Vincule a pasta de cada cliente e acesse os documentos direto do processo.</p><span class="win">Tudo do cliente a um clique</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="recursos" class="features">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Tudo num lugar</div><h2 class="display">Não são cinco ferramentas soltas. É uma operação inteira.</h2><p>Jurídico, vendas, atendimento e financeiro no mesmo sistema, os dados circulam entre eles, sem digitar duas vezes.</p></div>
+    <div class="fgrid">
+      <div class="fcard rv"><div class="ic">§</div><h3>Publicações & Prazos</h3><p>Captação do DJEN, cálculo de prazos, alertas e agenda de audiências.</p></div>
+      <div class="fcard rv"><div class="ic">⚖</div><h3>Processos</h3><p>Ficha completa do processo com partes, fases, andamentos e documentos.</p></div>
+      <div class="fcard rv"><div class="ic">◎</div><h3>NXO CRM</h3><p>Funil de vendas, captura de leads, contatos e insights de conversão.</p></div>
+      <div class="fcard rv"><div class="ic">✉</div><h3>WhatsApp Atendimento</h3><p>Central multi-atendente com histórico, etiquetas e respostas rápidas.</p></div>
+      <div class="fcard rv"><div class="ic">$</div><h3>Financeiro</h3><p>Lançamentos, contas a receber, fluxo de caixa e DRE simplificado.</p></div>
+      <div class="fcard rv"><div class="ic">⚑</div><h3>Acordos, Timesheet e Cálculos</h3><p>Negociação de acordos, controle de horas e cálculos judiciais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Simples de começar</div><h2 class="display">No ar em minutos, sem projeto de meses.</h2></div>
+    <div class="grid">
+      <div class="step rv"><div class="num">1</div><h3>Cadastre sua OAB</h3><p>Você informa o número e a UF. O sistema já começa a receber as publicações.</p></div>
+      <div class="step rv"><div class="num">2</div><h3>A equipe entra</h3><p>Convide os usuários, defina papéis e departamentos. Cada um vê o que importa.</p></div>
+      <div class="step rv"><div class="num">3</div><h3>Deixe o sistema trabalhar</h3><p>Prazos captados, follow-ups lembrados, financeiro em dia. Você foca no jurídico.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="roi">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">O resultado</div><h2 class="display">Pare de perder. Comece a ganhar.</h2></div>
+    <div class="cols">
+      <div class="box lose rv">
+        <h3>Deixa de perder</h3>
+        <div class="li"><span class="mk">-</span><span><b>Prazos:</b> evita preclusão, revelia, indenização e a perda do cliente.</span></div>
+        <div class="li"><span class="mk">-</span><span><b>Clientes:</b> follow-up automático segura a consulta que ia esfriar.</span></div>
+        <div class="li"><span class="mk">-</span><span><b>Honorários:</b> cobrança e alerta de atraso param a receita que vazava.</span></div>
+        <div class="li"><span class="mk">-</span><span><b>Tempo:</b> menos administrativo, mais horas faturáveis.</span></div>
+      </div>
+      <div class="box win rv">
+        <h3>Passa a ganhar</h3>
+        <div class="li"><span class="mk">+</span><span><b>Conversão:</b> mais consultas viram contratos.</span></div>
+        <div class="li"><span class="mk">+</span><span><b>Produtividade:</b> a equipe rende mais sem contratar mais gente.</span></div>
+        <div class="li"><span class="mk">+</span><span><b>Decisão por dados:</b> métricas mostram o que traz cliente e o que dá lucro.</span></div>
+        <div class="li"><span class="mk">+</span><span><b>Imagem:</b> atendimento e organização de escritório grande.</span></div>
+      </div>
+    </div>
+    <div class="quote rv">Um único <span class="g">prazo salvo</span> paga o sistema por anos. O resto é lucro.</div>
+  </div>
+</section>
+
+<section id="planos" class="plans">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Investimento</div><h2 class="display">Custa menos que perder um único cliente.</h2><p>Escolha pelo tamanho do escritório. Todos com a captação de prazos, o coração do sistema.</p></div>
+    <div class="grid">
+      <div class="plan rv">
+        <div class="nm">Essencial</div>
+        <div class="pr">R$ 149<small>/mês</small></div>
+        <div class="ds">Para o advogado solo ou dupla que não pode perder um prazo.</div>
+        <ul>
+          <li><span class="c">✓</span> 2 usuários · DJEN de 1 OAB</li>
+          <li><span class="c">✓</span> Prazos, audiências e cálculo automático</li>
+          <li><span class="c">✓</span> Processos, tarefas e funil básico</li>
+          <li><span class="c">✓</span> Financeiro</li>
+        </ul>
+        <a href="#" data-wa class="btn btn-out" style="justify-content:center;">Começar com o Essencial</a>
+      </div>
+      <div class="plan hi rv">
+        <div class="badge">Mais escolhido</div>
+        <div class="nm">Profissional</div>
+        <div class="pr">R$ 349<small>/mês</small></div>
+        <div class="ds">Para o escritório em crescimento que quer produtividade e dados.</div>
+        <ul>
+          <li><span class="c">✓</span> 8 usuários · DJEN de até 5 OABs</li>
+          <li><span class="c">✓</span> Tudo do Essencial</li>
+          <li><span class="c">✓</span> NXO CRM completo</li>
+          <li><span class="c">✓</span> WhatsApp de atendimento + Google Drive</li>
+          <li><span class="c">✓</span> Métricas e relatórios (PDF/Excel)</li>
+        </ul>
+        <a href="#" data-wa class="btn btn-orange" style="justify-content:center;">Quero o Profissional</a>
+      </div>
+      <div class="plan rv">
+        <div class="nm">Banca</div>
+        <div class="pr">R$ 699<small>/mês</small></div>
+        <div class="ds">Operação completa para bancas e escritórios médios, sem limites.</div>
+        <ul>
+          <li><span class="c">✓</span> Usuários e OABs ilimitados</li>
+          <li><span class="c">✓</span> Tudo do Profissional</li>
+          <li><span class="c">✓</span> Automações e Metas/OKRs</li>
+          <li><span class="c">✓</span> Onboarding e suporte prioritário</li>
+        </ul>
+        <a href="#" data-wa class="btn btn-out" style="justify-content:center;">Falar sobre o Banca</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Dúvidas</div><h2 class="display">Perguntas que todo escritório faz.</h2></div>
+    <div class="qa"><button>O sistema realmente pega minhas publicações sozinho? <span class="pl">+</span></button><div class="ans"><p>Sim. Você cadastra sua OAB e o sistema consulta o Diário de Justiça Eletrônico Nacional (DJEN) todos os dias, capta as publicações e calcula os prazos, avisando antes de vencer.</p></div></div>
+    <div class="qa"><button>Preciso instalar alguma coisa? <span class="pl">+</span></button><div class="ans"><p>Não. É 100% na nuvem, acessa do navegador, de qualquer computador ou celular. Nada para instalar, e as novidades entram sozinhas.</p></div></div>
+    <div class="qa"><button>Meus dados ficam seguros? <span class="pl">+</span></button><div class="ans"><p>Sim. Cada escritório tem os dados isolados dos demais, com controle de acesso por usuário e por departamento. Só quem você autoriza vê cada informação.</p></div></div>
+    <div class="qa"><button>Tenho equipe. Dá para vários usuários? <span class="pl">+</span></button><div class="ans"><p>Dá. A partir do plano Profissional são até 8 usuários (e ilimitados no Banca), com papéis e departamentos, cada pessoa vê o que é do trabalho dela.</p></div></div>
+    <div class="qa"><button>E se eu quiser cancelar? <span class="pl">+</span></button><div class="ans"><p>Sem fidelidade. Você contrata mês a mês e cancela quando quiser. A ideia é você ficar porque o sistema se paga, não por contrato.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="display rv">Comece a parar de perder dinheiro <span class="g">hoje.</span></h2>
+    <p class="rv">Cadastre sua OAB e veja o sistema captar seus prazos já na primeira semana. Sem instalação, sem projeto de meses.</p>
+    <div class="cta-row rv">
+      <a href="#" data-wa class="btn btn-orange">Agendar demonstração no WhatsApp</a>
+      <a href="#planos" class="btn btn-ghost">Ver os planos</a>
+    </div>
+    <div class="guar rv">Sem fidelidade · Cancele quando quiser · Suporte de gente de verdade</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><b style="color:#fff">N<span class="x">X</span>O</b><span style="color:#9fb0a3">Agência</span></a>
+    <div>Sistema de gestão para escritórios de advocacia · nxoagencia.com.br</div>
+    <div><a href="#" data-wa>WhatsApp (83) 9402-8974</a></div>
+  </div>
+</footer>
+
+<a class="wafloat" href="#" data-wa aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.24.68-1.42 1.32-1.95 1.36-.5.05-.99.24-3.35-.7-2.84-1.12-4.64-4.03-4.78-4.22-.14-.19-1.14-1.52-1.14-2.9 0-1.38.72-2.06.98-2.34.24-.26.53-.33.71-.33.18 0 .35 0 .5.01.16.01.38-.06.59.45.24.55.79 1.93.86 2.07.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.69-.81.87-1.09.18-.28.36-.23.61-.14.24.09 1.55.73 1.82.86.28.14.46.21.53.33.07.12.07.68-.17 1.36"/></svg>
+</a>
+
+<script>
+  var WA_NUM='5583994028974';
+  var WA_MSG=encodeURIComponent('Olá! Vim pela página da NXO e quero conhecer/agendar uma demonstração do sistema.');
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href='https://wa.me/'+WA_NUM+'?text='+WA_MSG;a.target='_blank';a.rel='noopener';});
+  var hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10);});
+  document.querySelectorAll('.qa button').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

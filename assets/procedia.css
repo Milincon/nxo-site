@@ -1,0 +1,205 @@
+/* Procedia, folha de estilo unica. Tokens da identidade visual versao 1, outubro 2026. */
+
+@font-face{font-family:'Geist';src:url('fonts/Geist-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('fonts/Geist-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist';src:url('fonts/Geist-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist Mono';src:url('fonts/GeistMono-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('fonts/InstrumentSerif-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('fonts/InstrumentSerif-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+
+:root{
+  --bordo:#6B1F2A; --bordo-forte:#4A1219; --bordo-claro:#F3E4E6;
+  --on-bordo:#F4F2EE; --on-bordo-suave:#E8D3D6; --areia:#E4C9A8;
+  --tinta:#141418; --tinta-2:#4A4B52;
+  --gelo:#ECEDEA; --papel:#FFFFFF; --linha:#D0D1CD;
+  --pauta-linha:rgba(107,31,42,0.14); --pauta-linha-inversa:rgba(244,242,238,0.10);
+  --resultado:#2E6B48; --foco:#6B1F2A;
+
+  --display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:Geist,'Helvetica Neue',Arial,sans-serif;
+  --mono:'Geist Mono',ui-monospace,Menlo,monospace;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px; --s12:48px; --s16:64px;
+  --pauta-passo:28px;
+  --r0:0px; --r-sm:2px; --r-pill:999px;
+  --sombra:0 10px 30px rgba(20,20,24,0.12);
+  --wrap:1140px;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--gelo);color:var(--tinta);font-family:var(--sans);font-size:15px;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s6)}
+
+/* Tipografia */
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-0.01em}
+.display-l{font-size:clamp(40px,6vw,64px);line-height:1.0}
+.titulo-1{font-size:clamp(30px,4.2vw,44px);line-height:1.05}
+.titulo-2{font-size:clamp(23px,2.6vw,30px);line-height:1.15}
+.destaque{font-style:italic;color:var(--bordo)}
+.corpo-l{font-size:clamp(16px,2vw,18px);line-height:28px;color:var(--tinta-2)}
+.corpo{font-size:15px;line-height:24px}
+.corpo-forte{font-size:15px;line-height:24px;font-weight:600}
+.legenda{font-size:13px;line-height:19px;color:var(--tinta-2)}
+.rotulo{font-family:var(--sans);font-size:12px;line-height:16px;font-weight:700;letter-spacing:0.16em;color:var(--bordo)}
+.dado{font-family:var(--mono);font-size:14px;line-height:20px}
+.numero{font-family:var(--display);font-size:clamp(40px,5vw,56px);line-height:1;color:var(--tinta)}
+.numero.positivo{color:var(--resultado)}
+
+/* Padrao de pauta. Um bloco pautado por peca, nunca atras de texto pequeno. */
+.pauta{background-image:repeating-linear-gradient(to bottom,var(--pauta-linha) 0 1px,transparent 1px var(--pauta-passo))}
+.pauta-inversa{background-image:repeating-linear-gradient(to bottom,var(--pauta-linha-inversa) 0 1px,transparent 1px var(--pauta-passo))}
+
+/* Secoes */
+.sec{padding:clamp(56px,8vw,96px) 0}
+.sec-papel{background:var(--papel)}
+.sec-bordo{background:var(--bordo);color:var(--on-bordo)}
+.sec-bordo h1,.sec-bordo h2,.sec-bordo h3{color:var(--on-bordo)}
+.sec-bordo .corpo-l,.sec-bordo .legenda{color:var(--on-bordo-suave)}
+.sec-bordo .rotulo{color:var(--areia)}
+.sec-tinta{background:var(--tinta);color:var(--on-bordo)}
+.sec-tinta h1,.sec-tinta h2{color:var(--on-bordo)}
+.sec-tinta .corpo-l{color:#B5B6BC}
+.sec-head{max-width:22ch;margin-bottom:var(--s8)}
+.sec-intro{max-width:62ch;margin-top:var(--s4)}
+
+/* Navegacao */
+.nav{position:sticky;top:0;z-index:50;background:rgba(236,237,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s6);height:72px}
+.nav-logo img{height:26px;width:auto}
+.nav-links{display:flex;gap:var(--s8);list-style:none}
+.nav-links a{font-size:14px;color:var(--tinta-2);padding:6px 0}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--bordo)}
+.nav-burger{display:none;width:44px;height:44px;align-items:center;justify-content:center}
+.nav-burger span{display:block;width:20px;height:1.5px;background:var(--tinta);position:relative}
+.nav-burger span::before,.nav-burger span::after{content:'';position:absolute;left:0;width:20px;height:1.5px;background:var(--tinta)}
+.nav-burger span::before{top:-6px}.nav-burger span::after{top:6px}
+@media(max-width:860px){.nav-links,.nav .btn{display:none}.nav-burger{display:flex}}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--gelo);display:flex;flex-direction:column;justify-content:center;gap:var(--s6);padding:var(--s12);opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer.aberto{opacity:1;pointer-events:auto}
+.drawer a{font-family:var(--display);font-size:32px;line-height:1.2}
+.drawer a:hover{color:var(--bordo)}
+.drawer-fechar{position:absolute;top:18px;right:18px;width:44px;height:44px;font-size:24px;color:var(--tinta)}
+
+/* Botoes */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:44px;padding:12px 22px;border-radius:var(--r-sm);font-size:15px;font-weight:600;transition:background .18s,color .18s,border-color .18s}
+.btn-principal{background:var(--bordo);color:var(--on-bordo)}
+.btn-principal:hover{background:var(--bordo-forte)}
+.sec-bordo .btn-principal{background:var(--on-bordo);color:var(--bordo)}
+.sec-bordo .btn-principal:hover{background:var(--areia)}
+.btn-secundario{border:1px solid var(--linha);color:var(--tinta);background:var(--papel)}
+.btn-secundario:hover{border-color:var(--bordo);color:var(--bordo)}
+.sec-bordo .btn-secundario{background:transparent;border-color:rgba(244,242,238,.4);color:var(--on-bordo)}
+.sec-bordo .btn-secundario:hover{border-color:var(--areia);color:var(--areia)}
+
+/* Cartoes e grades */
+.grade{display:grid;gap:var(--s4)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:980px){.g4,.g5{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g2,.g3,.g4,.g5{grid-template-columns:1fr}}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-sm);padding:var(--s6)}
+.cartao h3{margin-bottom:var(--s2)}
+.cartao .legenda{margin-top:var(--s2)}
+.cartao-bordo{background:var(--bordo);color:var(--on-bordo);border-color:var(--bordo)}
+.cartao-bordo h3{color:var(--on-bordo)}
+.cartao-bordo .legenda{color:var(--on-bordo-suave)}
+
+/* Etapa numerada (engrenagem) */
+.etapa{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-sm);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s2)}
+.etapa .passo{font-family:var(--mono);font-size:13px;color:var(--bordo)}
+.etapa h3{font-size:20px;line-height:1.2}
+.etapa .ferramentas{margin-top:auto;padding-top:var(--s4);font-size:12px;color:var(--tinta-2);border-top:1px solid var(--linha)}
+
+/* Numero de resultado. Sempre com legenda e fonte. */
+.indicador{display:flex;flex-direction:column;gap:var(--s1)}
+.indicador .numero{font-size:clamp(34px,4vw,48px)}
+.indicador .rotulo-num{font-size:13px;line-height:19px;color:var(--tinta-2);max-width:26ch}
+.sec-bordo .indicador .numero{color:var(--on-bordo)}
+.sec-bordo .indicador .rotulo-num{color:var(--on-bordo-suave)}
+
+/* Selo */
+.selo{display:inline-block;border-radius:var(--r-pill);background:var(--bordo-claro);color:var(--bordo-forte);font-size:12px;font-weight:700;letter-spacing:.08em;padding:5px 12px}
+
+/* Tabela de dados */
+.tabela{width:100%;border-collapse:collapse;font-size:14px}
+.tabela th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--tinta-2);padding:10px 12px;border-bottom:1px solid var(--linha)}
+.tabela td{padding:12px;border-bottom:1px solid var(--linha)}
+.tabela td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+.tabela tr:last-child td{border-bottom:none}
+
+/* Lista com marcador bordo */
+.lista{list-style:none;display:flex;flex-direction:column;gap:var(--s3)}
+.lista li{display:flex;gap:var(--s3);align-items:flex-start}
+.lista li::before{content:'';flex:0 0 auto;width:5px;height:5px;background:var(--bordo);margin-top:9px}
+.sec-bordo .lista li::before{background:var(--areia)}
+
+/* Formularios */
+label{font-size:13px;line-height:19px;font-weight:600;color:var(--tinta-2)}
+input,select,textarea{width:100%;margin-top:var(--s2);background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-sm);padding:12px 14px;font-family:var(--sans);font-size:15px;line-height:24px;font-weight:400;color:var(--tinta);min-height:44px;transition:border-color .15s ease-out}
+textarea{resize:vertical;min-height:110px}
+input:hover,select:hover,textarea:hover{border-color:#B9BAB6}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--foco);outline-offset:2px;border-color:var(--bordo)}
+input::placeholder,textarea::placeholder{color:#8A8B91}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B1F2A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:42px}
+
+/* Rodape */
+.rodape{background:var(--tinta);color:#B5B6BC;padding:var(--s12) 0 var(--s8)}
+.rodape a{color:#B5B6BC}
+.rodape a:hover{color:var(--areia)}
+.rodape-topo{display:flex;flex-wrap:wrap;gap:var(--s12);justify-content:space-between;padding-bottom:var(--s8);border-bottom:1px solid #34353B}
+.rodape h4{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.16em;color:#6E6F76;margin-bottom:var(--s4)}
+.rodape ul{list-style:none;display:flex;flex-direction:column;gap:var(--s2);font-size:14px}
+.rodape-fim{display:flex;flex-wrap:wrap;gap:var(--s3);justify-content:space-between;padding-top:var(--s6);font-size:12px;color:#6E6F76}
+.rodape-logo img{height:24px}
+
+/* Movimento. Tier Subtle: entrada 350ms deslocando 12px, escalonamento de 60ms,
+   elevacao de 1px no hover. Nada de pin, scrub ou texto quebrado em letras:
+   publico de setor regulado le isso como enfeite, nao como qualidade. */
+.ent{opacity:0;transform:translateY(12px);transition:opacity .35s cubic-bezier(.25,.46,.45,.94),transform .35s cubic-bezier(.25,.46,.45,.94)}
+.ent.visivel{opacity:1;transform:none}
+.ent-grupo>*{opacity:0;transform:translateY(8px);transition:opacity .3s cubic-bezier(.25,.46,.45,.94),transform .3s cubic-bezier(.25,.46,.45,.94)}
+.ent-grupo.visivel>*{opacity:1;transform:none}
+.ent-grupo.visivel>*:nth-child(1){transition-delay:0ms}
+.ent-grupo.visivel>*:nth-child(2){transition-delay:60ms}
+.ent-grupo.visivel>*:nth-child(3){transition-delay:120ms}
+.ent-grupo.visivel>*:nth-child(4){transition-delay:180ms}
+.ent-grupo.visivel>*:nth-child(5){transition-delay:240ms}
+.ent-grupo.visivel>*:nth-child(6){transition-delay:300ms}
+
+.cartao,.etapa{transition:transform .15s ease-out,border-color .15s ease-out}
+.cartao:hover,.etapa:hover{transform:translateY(-1px);border-color:var(--bordo)}
+.btn{transition:background .18s ease-out,color .18s ease-out,border-color .18s ease-out,transform .15s ease-out}
+.btn:active{transform:translateY(1px)}
+.nav{transition:box-shadow .2s ease-out}
+.nav.rolou{box-shadow:0 1px 0 var(--linha),0 6px 20px rgba(20,20,24,.06)}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--bordo);transition:right .22s ease-out}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{right:0}
+
+
+/* Aviso de cookies */
+.aviso{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;max-width:760px;margin:0 auto;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-sm);box-shadow:var(--sombra);padding:var(--s6);display:none;flex-direction:column;gap:var(--s4)}
+.aviso.visivel{display:flex}
+.aviso p{font-size:13px;line-height:19px;color:var(--tinta-2);margin:0}
+.aviso a{color:var(--bordo);text-decoration:underline}
+.aviso-botoes{display:flex;gap:var(--s3);flex-wrap:wrap}
+.aviso .btn{min-height:40px;padding:9px 18px;font-size:14px}
+@media(min-width:720px){.aviso{flex-direction:row;align-items:center;justify-content:space-between}.aviso-botoes{flex-shrink:0}}
+
+/* Acessibilidade */
+:focus-visible{outline:2px solid var(--foco);outline-offset:2px}
+.sec-bordo :focus-visible,.sec-tinta :focus-visible,.rodape :focus-visible{outline-color:var(--areia)}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:var(--s6);top:var(--s3);z-index:100;background:var(--bordo);color:var(--on-bordo);padding:10px 16px;border-radius:var(--r-sm)}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .ent,.ent-grupo>*{opacity:1 !important;transform:none !important}
+  .cartao:hover,.etapa:hover{transform:none}
+}
+@media(prefers-reduced-transparency:reduce){.nav{background:var(--gelo);backdrop-filter:none}}
